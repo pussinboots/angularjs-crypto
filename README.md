@@ -1,4 +1,6 @@
-An angularjs http interception extension to support cryptography
+==angularjs http interception extension for cryptography
+
+travis https://travis-ci.org/pussinboots/angularjs-crypto
 
 The project offer a http interceptor which decryp and encrypt marked json field.
 
