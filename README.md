@@ -1,14 +1,25 @@
-The Angular JS Example App - epost Program Search
+angularjs http interception extension for cryptography
+==================
 
-The json response will be fetch from http://api.epost.com but at the moment 
-there a little scala proxy is used to query the epost api to solve the cross domain 
-problem.
+travis https://travis-ci.org/pussinboots/angularjs-crypto
 
-1. git clone
-2. play run 
-3. Open browser to http://localhost:9000
+The project offer a http interceptor which decryp and encrypt marked json field.
 
+cryptography supported now
+- aes
 
-Live Demo http://playepost.herokuapp.com/assets/products.html
+follow 
+- des
+- triple aes, des
+- will see
 
-Live Demo (Testdaten) http://mymail.herokuapp.com/assets/products-e2e.html
+This angularjs module is part of the bankapp https://github.com/pussinboots/bankapp.
+The idea is to store encrypted data in a backend and decode it on the client side so that the backend 
+doesn't know what kind of data it stores only the angularjs client and the storage process know the 
+plain data.
+
+If you have question or want to take of the development than write me a mail at pussinboots666@googlemail.com.
+
+It is a very young project but with the support of wide open source tools like karma and travis it
+will flow soon i hope.
+
