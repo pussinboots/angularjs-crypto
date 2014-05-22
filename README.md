@@ -1,4 +1,4 @@
-==angularjs http interception extension for cryptography
+===angularjs http interception extension for cryptography
 
 travis https://travis-ci.org/pussinboots/angularjs-crypto
 
