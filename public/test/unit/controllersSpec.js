@@ -25,10 +25,10 @@ describe('Controllers tests', function () {
             $controller(ConfigCtrl, {$scope: scope});
         }));
 
-        it('should set result of profile response to the scope result variable', function () {
+        it('fetch encoded data and check that the decoded data are rendered', function () {
             $httpBackend.expectGET('/assets/config').respond(200,[{name:"XJWoMnnOlSF3tFoU4jn4gg==", value: "l0gZvr5oiHds8nQpqe0Kqg=="}]);
-            rootScope.$digest()
-            $httpBackend.flush();
+	    rootScope.$digest()
+	    $httpBackend.flush();
             expect(scope.config).toEqualData([{name:"COMMERZBANK AG", value: "1504.75"}]);
         });
     });
