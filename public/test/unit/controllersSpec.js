@@ -20,6 +20,7 @@ describe('Controllers tests', function () {
 
 	beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
+	    rootScope = $rootScope;
             scope = $rootScope.$new();
             $controller(ConfigCtrl, {$scope: scope});
         }));

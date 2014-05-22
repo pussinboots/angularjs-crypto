@@ -21,6 +21,8 @@ module.exports = function (config) {
             'http://code.angularjs.org/1.1.4/angular-resource.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js',
+ 	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
+    	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
             'public/js/epost/*.js',
             'public/js/epost/**/*.js',
             //'js/offline/**/*.js',
