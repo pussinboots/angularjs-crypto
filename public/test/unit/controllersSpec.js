@@ -21,7 +21,7 @@ describe('Controllers tests', function () {
 	beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
             scope = $rootScope.$new();
-            $controller(ProfileCtrl, {$scope: scope});
+            $controller(ConfigCtrl, {$scope: scope});
         }));
 
         it('should set result of profile response to the scope result variable', function () {
