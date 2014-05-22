@@ -12,6 +12,7 @@ play run
 Then go to http://localhost:9000/assets/products-e2e.html
 
 Or run the karma test with
+
 npm test
 
 Required installed nodejs, npm and karma of course see here
