@@ -5,6 +5,18 @@ travis https://travis-ci.org/pussinboots/angularjs-crypto
 
 The project offer a http interceptor which decryp and encrypt marked json field.
 
+Start the project local
+
+play run
+
+Then go to http://localhost:9000/assets/products-e2e.html
+
+Or run the karma test with
+npm test
+
+Required installed nodejs, npm and karma of course see here
+http://karma-runner.github.io/0.12/intro/installation.html
+
 cryptography supported now
 - aes
 
