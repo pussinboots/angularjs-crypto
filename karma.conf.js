@@ -24,8 +24,6 @@ module.exports = function (config) {
  	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
     	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
             'public/js/epost/*.js',
-            'public/js/epost/**/*.js',
-            //'js/offline/**/*.js',
             'public/test/**/*.js'
         ],
 

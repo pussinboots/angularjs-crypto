@@ -1,3 +1,5 @@
-<div id="name">{{config.items[0].name_enc}}</div>
-<div id="value">{{config.items[0].value_enc}}</div>
-<div id="plain">{{config.items[0].plain}}</div>
+<div ng-repeat="config in configs.items">
+<div id="name">{{config.name_enc}}</div>
+<div id="value">{{config.value_enc}}</div>
+<div id="plain">{{config.plain}}</div>
+</div>
