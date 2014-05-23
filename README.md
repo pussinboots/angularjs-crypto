@@ -19,7 +19,6 @@ Issues
 
 Todos
 -------------
-* configuration of the aes secret key to use (work in progress)
 * aggressive console logging is active for development maybe make it configurable
 * configuration the cipher algorithm to use (aes hard coded at the momment)
 * configuration of the keys to used for the configured cipher (at the moment hard coded key)
@@ -31,7 +30,7 @@ Todos
 
 Features
 -------------
-
+* configuration of the aes secret key to use for encryption/decryption
 * aes encryption/decryption of http json requests and responses
   * only with mode [ECB](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29)
   * only with padding [Pkcs7](http://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7)
@@ -39,6 +38,17 @@ Features
   * reponse then decrypt 
   * request then dencrypt
 * only requests / responses of Content-Type: 'application/json;charset=utf-8' will be processed other types will skip crypt processing include auto detection
+
+Configuration
+-------------
+
+#### Set the base64Key for aes encryption/decryption
+
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+
+ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+    cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+ }])
 
 Demo
 -------------
