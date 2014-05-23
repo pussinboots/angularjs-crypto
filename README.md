@@ -60,6 +60,7 @@ live
 The http calls are mocked with angular-mock.
 
 [Http Get Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/get)
+
 [Http Post Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/post)
 
 local
