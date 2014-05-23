@@ -67,6 +67,7 @@ Todos
 
 Features
 -------------
+* configuration of encode/decode function so that you can plugin in your own implementation
 * configuration of the aes secret key to use for encryption/decryption
 * configuration of the field name pattern which determinate which fields will be encrypted/decrypted
 * aes encryption/decryption of http json requests and responses
@@ -95,6 +96,31 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
  cfCryptoHttpInterceptor.pattern = "_enc"; //that is the default value
+}])
+```
+
+#### Set own encode function to use
+
+```js
+function encode(plainValue /*plain value to encode*/, base64Key /*the configured base64 string*/) {
+    // encoding here
+    return //return encoded;
+}
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+ cfCryptoHttpInterceptor.encodeFunc = "_enc"; //that is the default value
+}])
+```
+
+#### Set own decode function to use
+
+```js
+function decode(encryptedValue/* encrypted value as string*/, base64Key /*the configured base64 string*/) {
+    return  //decoded plain value as string;
+}
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+ cfCryptoHttpInterceptor.decodeFunc = "_enc"; //that is the default value
 }])
 ```
 
