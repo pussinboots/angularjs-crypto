@@ -14,4 +14,5 @@ demoApp.config(function ($routeProvider) {
 }]);*/
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
     cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+    cfCryptoHttpInterceptor.pattern = "_enc"; //default value but for a better understanding it is also defined here
 }])

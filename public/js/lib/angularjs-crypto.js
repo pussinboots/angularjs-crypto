@@ -11,7 +11,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept request " + angular.toJson(data));
                         if (!data)
                             return $q.reject(request);
-                        crypt(data, '_enc', encode, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfCryptoHttpInterceptor.pattern, encode, cfCryptoHttpInterceptor.base64Key)
                     }
                     return request;
                 },
@@ -22,7 +22,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept response " + angular.toJson(data));
                         if (!data)
                             return $q.reject(response);
-                        crypt(data, '_enc', decode, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfCryptoHttpInterceptor.pattern, decode, cfCryptoHttpInterceptor.base64Key)
                     }
                     return response;
                 },
@@ -37,10 +37,12 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
 
 cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64Key = "";
+    this.pattern = "_enc";
 
     this.$get = function () {
         return {
             base64Key: this.base64Key,
+            pattern: this.pattern
         };
     };
 });
