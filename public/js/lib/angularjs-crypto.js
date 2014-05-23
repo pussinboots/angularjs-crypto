@@ -11,7 +11,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept request " + angular.toJson(data));
                         if (!data)
                             return $q.reject(request);
-                        crypt(data, cfCryptoHttpInterceptor.pattern, encode, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
                     }
                     return request;
                 },
@@ -22,7 +22,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept response " + angular.toJson(data));
                         if (!data)
                             return $q.reject(response);
-                        crypt(data, cfCryptoHttpInterceptor.pattern, decode, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.decodeFunc, cfCryptoHttpInterceptor.base64Key)
                     }
                     return response;
                 },
@@ -38,15 +38,19 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
 cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64Key = "";
     this.pattern = "_enc";
+    this.encodeFunc = encode;
+    this.decodeFunc = decode;
 
     this.$get = function () {
         return {
             base64Key: this.base64Key,
-            pattern: this.pattern
+            pattern: this.pattern,
+            encodeFunc: this.encodeFunc,
+            decodeFunc: this.decodeFunc
         };
     };
 });
-
+//TODO problem with global namespace maybe
 function encode(plainValue, base64Key) {
     //TODO make key configurable
     //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
