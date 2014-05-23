@@ -20,7 +20,7 @@ Dependencies
 ```html
 <script type='text/javascript' src="angularjs-crypto.js"></script>
 ```
-* configure the http request for automatic decryption/encryption detection by setting proprty crypt:true
+* configure the http request for automatic decryption/encryption detection by setting property crypt:true
 
 Example Service Definition
 
@@ -47,7 +47,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }])
 ```
 
-That's done now all json fields that end with the pattern (default: '_enc') will be encoded by request and decoded in responsescfv
+That's done now all json fields that end with the pattern (default: '_enc') will be encoded in requests and decoded in responses.
 
 Issues
 -------------
