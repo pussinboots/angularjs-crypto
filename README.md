@@ -24,10 +24,10 @@ Todos
 * configuration the cipher algorithm to use (aes hard coded at the momment)
 * configuration of the keys to used for the configured cipher (at the moment hard coded key)
 * implements missing ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
-* DES
-* riple DES
-* Rabbit
-* RC4, RC4Drop
+ * DES
+ * riple DES
+ * Rabbit
+ * RC4, RC4Drop
 
 Features
 -------------
