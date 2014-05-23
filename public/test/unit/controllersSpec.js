@@ -16,7 +16,7 @@ describe('Controllers tests', function () {
 	 
 	var httpProvider;
  
-	beforeEach(module('angularjs-crypto', function ($httpProvider) {
+	beforeEach(module('demoApp', function ($httpProvider) {
 	    console.log('BEGIN: module callback');
 	    httpProvider = $httpProvider;
 	    console.log('END: module callback');
@@ -30,7 +30,7 @@ describe('Controllers tests', function () {
  
     });
 
-    beforeEach(module('angularjs-crypto'));
+    beforeEach(module('demoApp'));
 
 
     describe('decode GET response', function () {
