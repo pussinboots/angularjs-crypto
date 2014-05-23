@@ -4,8 +4,10 @@
 var myModule = angular.module('angularjs-crypto', ['ngCookies', 'services'])
 
 myModule.config(function ($routeProvider) {
-    $routeProvider.when('/profile', { templateUrl: 'partials/epost/profile.html', controller: ConfigCtrl })
-        .otherwise({ redirectTo: '/profile' });
+    $routeProvider
+	.when('/get', { templateUrl: 'partials/epost/get.html', controller: DecodeGetController })
+	.when('/post', { templateUrl: 'partials/epost/post.html', controller: EncodePostController })
+        .otherwise({ redirectTo: '/get' });
 })
 myModule.config(['$httpProvider', function ($httpProvider) {
     //$locationProvider.html5Mode(true)
@@ -14,21 +16,25 @@ myModule.config(['$httpProvider', function ($httpProvider) {
 
 myModule.factory('cryptoHttpInterceptor', function ($q, $cookieStore, $rootScope, $interpolate) {
     return {
-        request: function (config) {
-            /*var exp = $interpolate(config.url);
-            config.url  = exp({config: $rootScope.getPlattFormConfig()})*/
-            return config;
+        request: function (request) {
+	    if(request.headers['Content-Type'] === "application/json;charset=utf-8")
+	    {
+                var data = request.data
+		console.log("intercept request " + data)
+                if(!data)
+                    return $q.reject(request)
+		crypt(data, '_enc', encode)
+            }
+            return request;
         },
 	response: function (response) {
-            // do something on success
-            if(response.headers()['content-type'] === "application/json")
+            if(response.headers()['content-type'] === "application/json;charset=utf-8" && response.config.crypt != false)
 	    {
-                // Validate response if not ok reject
-                var data = response.data//examineJSONResponse(response); // assumes this function is available
+                var data = response.data
 		console.log("intercept response " + data)
                 if(!data)
-                    return $q.reject(response);
-		decodes(data)
+                    return $q.reject(response)
+		crypt(data, '_enc', decode)
             }
             return response;
         },
@@ -39,11 +45,27 @@ myModule.factory('cryptoHttpInterceptor', function ($q, $cookieStore, $rootScope
     };
 });
 
-function decode(encryptedValue) {
+function encode(plainValue) {
+	//TODO make key configurable
 	var base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 	console.log( "base64Key = " + base64Key );
 
-	// this is the actual key as a sequence of bytes
+	var key = CryptoJS.enc.Base64.parse(base64Key);
+	// this is the decrypted data as a sequence of bytes
+	var encryprtedData = CryptoJS.AES.encrypt( plainValue, key, {
+	    mode: CryptoJS.mode.ECB,
+	    padding: CryptoJS.pad.Pkcs7
+	} );
+
+	//var encryprtedValue = encryprtedData.toString( CryptoJS.enc.Base64);
+	return encryprtedData.toString();
+}
+
+function decode(encryptedValue) {
+	//TODO make key configurable
+	var base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+	console.log( "base64Key = " + base64Key );
+
 	var key = CryptoJS.enc.Base64.parse(base64Key);
 	// this is the decrypted data as a sequence of bytes
 	var decryptedData = CryptoJS.AES.decrypt( encryptedValue, key, {
@@ -51,19 +73,16 @@ function decode(encryptedValue) {
 	    padding: CryptoJS.pad.Pkcs7
 	} );
 
-
 	var decryptedValue = decryptedData.toString( CryptoJS.enc.Utf8 );
 	return decryptedValue
 }
 
-function decodes(events)
-  {
-    var keys = Object.keys(events);
-    for (var i in keys) {
-	    if (keys[i].endsWith('_enc')) {
-	      events[keys[i]] = decode(events[keys[i]])  
-	    }
-	    if (typeof events[keys[i]] === 'object')
-		decodes(events[keys[i]])
-	    } 	    
-  }
+function crypt(events, pattern, callback) {
+	var keys = Object.keys(events);
+	for (var i in keys) {
+		if (keys[i].endsWith(pattern))
+			events[keys[i]] = callback(events[keys[i]])  
+		if (typeof events[keys[i]] === 'object')
+			crypt(events[keys[i]], pattern, callback)
+	} 	    
+}
