@@ -26,10 +26,13 @@ describe('Controllers tests', function () {
         }));
 
         it('fetch encoded data and check that the decoded data are rendered', function () {
-            $httpBackend.expectGET('/assets/config').respond(200,[{name:"XJWoMnnOlSF3tFoU4jn4gg==", value: "l0gZvr5oiHds8nQpqe0Kqg=="}]);
-	    rootScope.$digest()
+            $httpBackend.expectGET('/assets/config').respond(200,{	enc_array:"items",
+		items:[{name_enc:"XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}],
+		count:1
+	});
+	    rootScope.$digest();
 	    $httpBackend.flush();
-            expect(scope.config).toEqualData([{name:"COMMERZBANK AG", value: "1504.75"}]);
+            expect(scope.config).toEqualData({ enc_array : 'items', items : [ { name_enc : 'COMMERZBANK AG', value_enc : '1504.75', plain : 'Hallo' } ], count : 1} );
         });
     });
 });
