@@ -148,9 +148,11 @@ Start the project local
 
   play run
 
-Then go to http://localhost:9000/assets/products-e2e.html
+Then go to
+* [Get Example](http://localhost:9000/assets/products-e2e.html#/get)
+* [Post Example](http://localhost:9000/assets/products-e2e.html#/post)
 
-Or run the karma test with 
+Or run the karma test local with 
 
   npm test
 
