@@ -3,9 +3,9 @@ angularjs-crypto
 
 AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
 
-------------
 Continous Integration
-[travis](https://travis-ci.org/pussinboots/angularjs-crypto)
+------------
+* [travis](https://travis-ci.org/pussinboots/angularjs-crypto)
 
 Dependencies
 ------------
@@ -39,7 +39,7 @@ Features
   * reponse then decrypt 
   * request then dencrypt
 * only requests / responses of Content-Type: 'application/json;charset=utf-8' will be processed other types will skip crypt processing include auto detection
-* 
+
 Demo
 -------------
 live
