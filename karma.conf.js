@@ -15,15 +15,13 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js',
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js',
             'http://code.angularjs.org/1.1.4/angular-resource.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js',
  	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
     	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
-            'public/js/epost/*.js',
+            'public/js/*.js',
             'public/test/**/*.js'
         ],
 

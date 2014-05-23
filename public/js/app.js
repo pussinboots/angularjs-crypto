@@ -5,8 +5,8 @@ var myModule = angular.module('angularjs-crypto', ['ngCookies', 'services'])
 
 myModule.config(function ($routeProvider) {
     $routeProvider
-	.when('/get', { templateUrl: 'partials/epost/get.html', controller: DecodeGetController })
-	.when('/post', { templateUrl: 'partials/epost/post.html', controller: EncodePostController })
+	.when('/get', { templateUrl: 'partials/get.html', controller: DecodeGetController })
+	.when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController })
         .otherwise({ redirectTo: '/get' });
 })
 myModule.config(['$httpProvider', function ($httpProvider) {
@@ -50,7 +50,7 @@ myModule.factory('cryptoHttpInterceptor', function ($q, $cookieStore, $rootScope
 function encode(plainValue) {
 	//TODO make key configurable
 	var base64Key = "16rdKQfqN3L4TY7YktgxBw==";
-	console.log( "base64Key = " + base64Key );
+	//console.log( "base64Key = " + base64Key );
 
 	var key = CryptoJS.enc.Base64.parse(base64Key);
 	// this is the decrypted data as a sequence of bytes
