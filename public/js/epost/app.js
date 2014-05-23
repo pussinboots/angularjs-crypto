@@ -17,7 +17,8 @@ myModule.config(['$httpProvider', function ($httpProvider) {
 myModule.factory('cryptoHttpInterceptor', function ($q, $cookieStore, $rootScope, $interpolate) {
     return {
         request: function (request) {
-	    if(request.headers['Content-Type'] === "application/json;charset=utf-8")
+	    var shouldCrypt = (request.crypt||{})
+	    if(request.headers['Content-Type'] === "application/json;charset=utf-8" && shouldCrypt == true)
 	    {
                 var data = request.data
 		console.log("intercept request " + data)
@@ -28,7 +29,8 @@ myModule.factory('cryptoHttpInterceptor', function ($q, $cookieStore, $rootScope
             return request;
         },
 	response: function (response) {
-            if(response.headers()['content-type'] === "application/json;charset=utf-8" && response.config.crypt != false)
+	    var shouldCrypt = (response.config||{}).crypt
+            if(response.headers()['content-type'] === "application/json;charset=utf-8" && shouldCrypt == true)
 	    {
                 var data = response.data
 		console.log("intercept response " + data)
