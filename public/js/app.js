@@ -9,7 +9,9 @@ demoApp.config(function ($routeProvider) {
         .when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController })
         .otherwise({ redirectTo: '/get' });
 });
-demoApp.config(['$httpProvider', function ($httpProvider) {
-    //$locationProvider.html5Mode(true)
+/*demoApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('cryptoHttpInterceptor');
-}]);
+}]);*/
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+    cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+}])
