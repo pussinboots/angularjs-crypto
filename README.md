@@ -46,7 +46,6 @@ Configuration
 
 ```js
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
-
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
  cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 }])
