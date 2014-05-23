@@ -1,24 +1,22 @@
 language: node_js
-
-before_script: 
+before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 - sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-- sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+- sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
+  add -'
 - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 - sudo apt-get update
 - sudo apt-get install opera
 - sudo apt-get install google-chrome-stable
-
-node_js: 
-- 0.10
-
+node_js:
+- 0.1
 deploy:
   provider: heroku
   app: angularjs-crypto
   strategy: git
   api_key:
-    secure: h4Jtxh/e7T2uMUMF/WuOIJwZ0x0T05+KijCYg9RL8yLdR7Hbb6vcEjYhriMnujIS0eBz6//bXNno7I9Gs1lSpORan+lZEBN9iVXvFjy+MmGnZobXIzGHaVWfwJD59LUFn3jhSSHjA4ERGrssFgH9EOlK7m0rXXAn/mt+U4frNoM=
+    secure: nQ9G863kXSWi+AC/Xreiz1/bGTikFfU+0MNQY6NkvMh3A7vJjQP52cpOcVsSnJi8oekTYrbJDj/aswSSXSoJI5ftvxjBU5GwGyB6gjJQRtMGMn3IBgc9X19vW4NGqX5Y2aQRoJOfHy2A1sKrkycfEdy/x8Z3jhoPHG1+Pi0lLNQ=
 before_deploy:
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
