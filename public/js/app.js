@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-var demoApp = angular.module('demoApp', ['ngCookies', 'services', 'angularjs-crypto']);
+var demoApp = angular.module('demoApp', ['services', 'angularjs-crypto']);
 
 demoApp.config(function ($routeProvider) {
     $routeProvider
