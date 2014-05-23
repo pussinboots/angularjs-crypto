@@ -108,7 +108,7 @@ function encode(plainValue /*plain value to encode*/, base64Key /*the configured
 }
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
- cfCryptoHttpInterceptor.encodeFunc = "_enc"; //that is the default value
+ cfCryptoHttpInterceptor.encodeFunc = encode; //that is the default value
 }])
 ```
 
@@ -120,7 +120,7 @@ function decode(encryptedValue/* encrypted value as string*/, base64Key /*the co
 }
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
- cfCryptoHttpInterceptor.decodeFunc = "_enc"; //that is the default value
+ cfCryptoHttpInterceptor.decodeFunc = decode; //that is the default value
 }])
 ```
 
