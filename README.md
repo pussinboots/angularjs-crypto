@@ -44,11 +44,13 @@ Configuration
 
 #### Set the base64Key for aes encryption/decryption
 
+```js
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 
- demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
-    cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
- }])
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+ cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+}])
+'''
 
 Demo
 -------------
