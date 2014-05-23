@@ -13,3 +13,12 @@ before_script:
 
 node_js: 
 - 0.10
+
+deploy:
+  provider: heroku
+  app: angularjs-crypto
+  strategy: git
+  api_key:
+    secure: h4Jtxh/e7T2uMUMF/WuOIJwZ0x0T05+KijCYg9RL8yLdR7Hbb6vcEjYhriMnujIS0eBz6//bXNno7I9Gs1lSpORan+lZEBN9iVXvFjy+MmGnZobXIzGHaVWfwJD59LUFn3jhSSHjA4ERGrssFgH9EOlK7m0rXXAn/mt+U4frNoM=
+before_deploy:
+- if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
