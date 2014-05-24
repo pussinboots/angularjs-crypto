@@ -13,6 +13,7 @@
     "karma-opera-launcher": "~0.1",
     "karma-sauce-launcher": "~0.1",
     "karma-script-launcher": "~0.1",
+    "karma-threshold-reporter": "~0.1.6",
     "connect": "~2.17.1"
   },
   "engines": {

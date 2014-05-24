@@ -15,7 +15,6 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js',
-            'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js',
             'http://code.angularjs.org/1.1.4/angular-resource.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js',
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js',
@@ -36,10 +35,19 @@ module.exports = function (config) {
             'public/test/lib/angular/jstd-scenario-adapter.js'
         ],
 
+        preprocessors: { 'public/js/*.js': ['coverage'],'public/js/lib/*.js': ['coverage'] },
+
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['progress', 'dots', 'junit', 'coverage'],
+        reporters: ['progress', 'dots', 'junit', 'coverage', 'threshold'],
+
+	thresholdReporter: {
+	      statements: 100,
+	      branches: 60,
+	      functions: 85,
+	      lines: 90
+	},
 
 
         // web server port

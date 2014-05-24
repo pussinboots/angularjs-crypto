@@ -129,4 +129,24 @@ describe('Controllers tests', function () {
         });
     });
 
+     describe('empty http responses', function () {
+        var scope, $httpBackend, rootScope;
+
+        beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
+            $httpBackend = _$httpBackend_;
+            rootScope = $rootScope;
+            scope = $rootScope.$new();
+            $controller(DecodeGetController, {$scope: scope});
+        }));
+
+        it('reject promise by empty response which should be decrypted by service configuration', function () {
+            $httpBackend.expectGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+    	    $httpBackend.expectGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+            rootScope.$digest();
+            $httpBackend.flush();
+            expect(scope.data).toEqualData({});
+            expect(scope.received).toEqualData({});
+        });
+    });
+
 });

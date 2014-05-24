@@ -25,10 +25,6 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.decodeFunc, cfCryptoHttpInterceptor.base64Key)
                     }
                     return response;
-                },
-                responseError: function (response) {
-                    // do something on error
-                    return $q.reject(response);
                 }
             };
         }]
