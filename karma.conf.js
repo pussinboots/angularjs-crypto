@@ -75,8 +75,14 @@ module.exports = function (config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        browsers: ['Firefox','Opera', 'chromium-browser'/*,'Chrome'*/], //Chrome not started in travis ci
-
+        browsers: ['Firefox','Opera', 'Chrome_without_security'/*,'Chrome'*/], //Chrome not started in travis ci
+	
+	customLaunchers: {
+	      Chrome_without_security: {
+		base: 'Chrome',
+		flags: ['--disable-web-security']
+	      }
+	},
 
         // If browser does not capture in given timeout [ms], kill it
         captureTimeout: 60000,
