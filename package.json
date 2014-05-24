@@ -12,7 +12,8 @@
     "karma-ng-scenario": "~0.1",
     "karma-opera-launcher": "~0.1",
     "karma-sauce-launcher": "~0.1",
-    "karma-script-launcher": "~0.1"
+    "karma-script-launcher": "~0.1",
+    "connect": "~2.17.1"
   },
   "engines": {
     "node": "0.10.x"
