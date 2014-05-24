@@ -153,11 +153,11 @@ live
 
 The http calls are mocked with angular-mock.
 
-[Http Get Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/get)
+[Http Get Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/get)
 
-[Http Post Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/post)
+[Http Post Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/post)
 
-[Change base64Key Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/key)
+[Change base64Key Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/key)
 
 local
 ------
@@ -174,9 +174,9 @@ Start it with play
     play run
     
 Then go to
-* [Get Example](http://localhost:9000/assets/products-e2e.html#/get)
-* [Post Example](http://localhost:9000/assets/products-e2e.html#/post)
-* [Change base64Key Example](http://localhost:9000/assets/products-e2e.html#/key)
+* [Get Example](http://localhost:9000/products-e2e.html#/get)
+* [Post Example](http://localhost:9000/products-e2e.html#/post)
+* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
 
 Start it with nodejs
 
