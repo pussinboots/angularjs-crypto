@@ -1,7 +1,7 @@
 {
   "name": "angularjs-crypto",
   "version": "0.0.1",
-  "devDependencies": {
+  "dependencies": {
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.4",
     "karma-cli": "0.0.4",
