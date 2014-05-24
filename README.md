@@ -157,21 +157,36 @@ The http calls are mocked with angular-mock.
 
 [Http Post Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/post)
 
+[Change base64Key Example](http://angularjs-crypto.herokuapp.com/assets/products-e2e.html#/key)
+
 local
 ------
 
+Two ways to run the demo app local one with play or second with nodejs.
+
 Dependencies
-* play 2.2.3
+* play 2.2.3 (optional)
 * nodejs 0.10.28
 * (karma-test runner)[http://karma-runner.github.io/0.12/intro/installation.html]
 
-Start the project local
+Start it with play
 
-  play run
-
+    play run
+    
 Then go to
 * [Get Example](http://localhost:9000/assets/products-e2e.html#/get)
 * [Post Example](http://localhost:9000/assets/products-e2e.html#/post)
+* [Change base64Key Example](http://localhost:9000/assets/products-e2e.html#/key)
+
+Start it with nodejs
+
+    node server.js
+    
+
+Then go to
+* [Get Example](http://localhost:9000/products-e2e.html#/get)
+* [Post Example](http://localhost:9000/products-e2e.html#/post)
+* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
 
 Or run the karma test local with 
 
