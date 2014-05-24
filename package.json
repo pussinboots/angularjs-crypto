@@ -14,6 +14,7 @@
     "karma-sauce-launcher": "~0.1",
     "karma-script-launcher": "~0.1",
     "karma-threshold-reporter": "~0.1.6",
+    "karma-phantomjs-launcher": "~0.1",
     "connect": "~2.17.1"
   },
   "engines": {
