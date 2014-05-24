@@ -125,6 +125,26 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }])
 ```
 
+##Example
+
+#### Key Example
+
+Change the base64Key locally by read it from the rootScope.
+
+```js
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(function(cfCryptoHttpInterceptor, $rootScope) {
+    cfCryptoHttpInterceptor.base64Key = $rootScope.base64Key;//every time the base64Key is changed in the rootscope it affects the encryption/decryption also
+    cfCryptoHttpInterceptor.pattern = "_enc"; //default value but for a better understanding it is also defined here
+})
+```
+
+With this html snippet you can edit the key to use only locally.
+
+```html
+<input type="text" ng-model="$root.base64Key" />
+```
+
 Demo
 -------------
 
