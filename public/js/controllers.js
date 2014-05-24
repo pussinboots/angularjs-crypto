@@ -5,6 +5,9 @@ function DecodeGetController($scope, Data) {
     $scope.data = Data.query();
 }
 
+function KeyController($scope) {
+}
+
 function EncodePostController($scope, Data) {
     $scope.data = {
         items: [
