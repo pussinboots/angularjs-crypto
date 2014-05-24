@@ -43,7 +43,7 @@ module.exports = function (config) {
         reporters: ['progress', 'dots', 'junit', 'coverage', 'threshold'],
 
 	thresholdReporter: {
-	      statements: 100,
+	      statements: 90,
 	      branches: 60,
 	      functions: 85,
 	      lines: 90
