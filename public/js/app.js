@@ -5,9 +5,10 @@ var demoApp = angular.module('demoApp', ['services', 'angularjs-crypto']);
 
 demoApp.config(function ($routeProvider) {
     $routeProvider
-        .when('/get', { templateUrl: 'partials/get.html', controller: DecodeGetController })
-        .when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController })
-        .when('/key', { templateUrl: 'partials/key.html', controller: KeyController })
+        .when('/get', { templateUrl: 'partials/get.html', controller: DecodeGetController})
+        .when('/query', { templateUrl: 'partials/get.html', controller: EncodeQueryGetController})
+        .when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController})
+        .when('/key', { templateUrl: 'partials/key.html'})
         .otherwise({ redirectTo: '/get' });
 });
 /*demoApp.config(['$httpProvider', function ($httpProvider) {

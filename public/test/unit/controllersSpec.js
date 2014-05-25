@@ -149,4 +149,37 @@ describe('Controllers tests', function () {
         });
     });
 
+    describe('encode query parameter that end with the field name pattern', function () {
+        var scope, $httpBackend, rootScope;
+
+        beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
+            $httpBackend = _$httpBackend_;
+            rootScope = $rootScope;
+            scope = $rootScope.$new();
+            $controller(EncodeQueryGetController, {$scope: scope});
+        }));
+
+        it('reject promise by empty response which should be decrypted by service configuration', function () {
+            $httpBackend.expectGET('/assets/config').respond(200, {items: [
+                {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
+            ],
+                count: 1
+            }, {'Content-Type': 'application/json;charset=utf-8'});
+            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {items: [
+                {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
+            ], count: 1
+            }, {'Content-Type': 'application/json;charset=utf-8'});
+	    rootScope.$digest();
+            $httpBackend.flush();
+            expect(scope.data).toEqualData({items: [
+                { name_enc: 'COMMERZBANK AG', value_enc: '1504.75', plain: 'Hallo' }
+            ], count: 1});
+            expect(scope.received).toEqualData({items: [
+                {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
+            ],
+                count: 1
+            });
+        });
+    });
+
 });

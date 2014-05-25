@@ -12,7 +12,9 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         if (!data)
                             return $q.reject(request);
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
-                    }
+                    } else if (( typeof( request.params ) != "undefined") ){
+			crypt(request.params, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
+		    }
                     return request;
                 },
                 response: function (response) {
