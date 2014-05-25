@@ -158,6 +158,8 @@ The http calls are mocked with angular-mock.
 
 [Http Post Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/post)
 
+[Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/products-e2e.html#/query)
+
 [Change base64Key Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/key)
 
 local
@@ -177,6 +179,7 @@ Start it with play
 Then go to
 * [Get Example](http://localhost:9000/products-e2e.html#/get)
 * [Post Example](http://localhost:9000/products-e2e.html#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
 * [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
 
 Start it with nodejs
@@ -187,6 +190,7 @@ Start it with nodejs
 Then go to
 * [Get Example](http://localhost:9000/products-e2e.html#/get)
 * [Post Example](http://localhost:9000/products-e2e.html#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
 * [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
 
 Or run the karma test local with 
