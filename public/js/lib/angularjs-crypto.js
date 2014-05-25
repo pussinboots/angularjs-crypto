@@ -14,6 +14,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
                     } else if (( typeof( request.params ) != "undefined") ){
 			crypt(request.params, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
+			cfCryptoHttpInterceptor.queryParamsEncodedCallback(request.params)
 		    }
                     return request;
                 },
@@ -38,6 +39,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.pattern = "_enc";
     this.encodeFunc = encode;
     this.decodeFunc = decode;
+    this.queryParamsEncodedCallback = queryParamsEncoded
 
     this.$get = function () {
         return {
@@ -48,6 +50,9 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
         };
     };
 });
+function queryParamsEncoded(plainValue, base64Key) {
+}
+
 //TODO problem with global namespace maybe
 function encode(plainValue, base64Key) {
     //TODO make key configurable
