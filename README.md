@@ -68,15 +68,16 @@ Todos
 
 Features
 -------------
+* encoding of query parameter fields that end with the pattern
 * configuration of encode/decode function so that you can plugin in your own implementation
 * configuration of the aes secret key to use for encryption/decryption
 * configuration of the field name pattern which determinate which fields will be encrypted/decrypted
 * aes encryption/decryption of http json requests and responses
   * only with mode [ECB](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29)
   * only with padding [Pkcs7](http://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7)
-* automatic detection of encryption/decryption for json fields based on the naming rule all fields end with _enc as it comes 
+* automatic detection of encryption/decryption for json fields based on the naming rule all fields end with pattern (default: :enc) as it comes 
   * reponse then decrypt 
-  * request then dencrypt
+  * request then encrypt
 * only requests / responses of Content-Type: 'application/json;charset=utf-8' will be processed other types will skip crypt processing include auto detection
 
 Configuration
