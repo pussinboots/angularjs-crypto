@@ -3,9 +3,8 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
     .config(['$httpProvider', function ($httpProvider) {
         var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfCryptoHttpInterceptor) {
             return {
-                $get: function() {return 'adsdas'},
                 request: function (request) {
-                    var shouldCrypt = (request.crypt || {});
+                    var shouldCrypt = (request.crypt || false);
                     if (request.headers['Content-Type'] === "application/json;charset=utf-8" && shouldCrypt == true) {
                         var data = request.data;
                         console.log("intercept request " + angular.toJson(data));
@@ -14,12 +13,11 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
                     } else if (( typeof( request.params ) != "undefined") ){
 			crypt(request.params, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
-			cfCryptoHttpInterceptor.queryParamsEncodedCallback(request.params)
 		    }
                     return request;
                 },
                 response: function (response) {
-                    var shouldCrypt = (response.config || {}).crypt;
+                    var shouldCrypt = (response.config || false).crypt;
                     if (response.headers()['content-type'] === "application/json;charset=utf-8" && shouldCrypt == true) {
                         var data = response.data;
                         console.log("intercept response " + angular.toJson(data));
@@ -27,6 +25,9 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                             return $q.reject(response);
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.decodeFunc, cfCryptoHttpInterceptor.base64Key)
                     }
+ 		    if (cfCryptoHttpInterceptor.responseWithQueryParams && ( typeof( response.data ) != "undefined") && response.data != null) {
+			response.data.$queryParams = response.config.params;
+		    }
                     return response;
                 }
             };
@@ -39,19 +40,18 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.pattern = "_enc";
     this.encodeFunc = encode;
     this.decodeFunc = decode;
-    this.queryParamsEncodedCallback = queryParamsEncoded
+    this.responseWithQueryParams = true;
 
     this.$get = function () {
         return {
             base64Key: this.base64Key,
             pattern: this.pattern,
             encodeFunc: this.encodeFunc,
-            decodeFunc: this.decodeFunc
+            decodeFunc: this.decodeFunc,
+	    responseWithQueryParams: this.responseWithQueryParams
         };
     };
 });
-function queryParamsEncoded(plainValue, base64Key) {
-}
 
 //TODO problem with global namespace maybe
 function encode(plainValue, base64Key) {

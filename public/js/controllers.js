@@ -8,8 +8,14 @@ function DecodeGetController($scope, Data) {
 function EncodeQueryGetController($scope, Data) {
     $scope.received = Data.queryNoCrypt();
     var queryParam = {name_enc:'COMMERZBANK AG'}
-    $scope.data = Data.query(queryParam);
-    $scope.queryParam=$scope.data.params
+    $scope.data = Data.query(queryParam, function(response) {
+	$scope.queryParam=$scope.data.$queryParams
+    });
+}
+
+function EmptyController($scope, Empty, Data) {
+    $scope.received = Empty.post();
+    $scope.data = Data.query()
 }
 
 function EncodePostController($scope, Data) {

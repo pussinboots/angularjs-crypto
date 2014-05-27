@@ -136,12 +136,20 @@ describe('Controllers tests', function () {
             $httpBackend = _$httpBackend_;
             rootScope = $rootScope;
             scope = $rootScope.$new();
-            $controller(DecodeGetController, {$scope: scope});
+            $controller(EmptyController, {$scope: scope});
         }));
+	it('reject request with empty data and set content type to application/json', function () {
+	    // post request is requested because of empty request data (body)
+    	    /*$httpBackend.whenPOST('/assets/empty').respond(200, null,{'content-type': 'application/json;charset=utf-8'});*/
+	    $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+            rootScope.$digest();
+            $httpBackend.flush();
+            expect(scope.data).toEqualData({});
+            expect(scope.received).toEqualData({});
+        });
 
         it('reject promise by empty response which should be decrypted by service configuration', function () {
-            $httpBackend.expectGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
-    	    $httpBackend.expectGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+            $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.data).toEqualData({});
@@ -171,6 +179,7 @@ describe('Controllers tests', function () {
             }, {'Content-Type': 'application/json;charset=utf-8'});
 	    rootScope.$digest();
             $httpBackend.flush();
+            expect(scope.data.$queryParams).toEqualData({name_enc: 'XJWoMnnOlSF3tFoU4jn4gg=='});
             expect(scope.data).toEqualData({items: [
                 { name_enc: 'COMMERZBANK AG', value_enc: '1504.75', plain: 'Hallo' }
             ], count: 1});
