@@ -22,6 +22,11 @@ Dependencies
 ```
 * configure the http request for automatic decryption/encryption detection by setting property crypt:true
 
+* add modul dependency ('angularjs-crypto') to angular
+```js
+var demoApp = angular.module('demoApp', ['services', 'angularjs-crypto']);
+```
+
 Example Service Definition
 
 ```js
