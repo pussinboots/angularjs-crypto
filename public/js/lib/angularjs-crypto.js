@@ -5,7 +5,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
             return {
                 request: function (request) {
                     var shouldCrypt = (request.crypt || false);
-                    if (request.headers['Content-Type'] === "application/json;charset=utf-8" && shouldCrypt == true) {
+                    if (checkHeaderJson(request.headers['Content-Type']) && shouldCrypt == true) {
                         var data = request.data;
                         console.log("intercept request " + angular.toJson(data));
                         if (!data)
@@ -18,7 +18,7 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                 },
                 response: function (response) {
                     var shouldCrypt = (response.config || false).crypt;
-                    if (response.headers()['content-type'] === "application/json;charset=utf-8" && shouldCrypt == true) {
+                    if (checkHeaderJson(response.headers()['content-type']) && shouldCrypt == true) {
                         var data = response.data;
                         console.log("intercept response " + angular.toJson(data));
                         if (!data)
@@ -55,6 +55,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
 
 //TODO problem with global namespace maybe
 function encode(plainValue, base64Key) {
+    if (!plainValue) { return plainValue; }
     //TODO make key configurable
     //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
     //console.log( "base64Key = " + base64Key );
@@ -94,6 +95,14 @@ function crypt(events, pattern, callback, base64Key) {
     }
 }
 
+function checkHeaderJson(header) {
+    if(!header) { return false; }
+    return(header.beginsWith("application/json"));
+}
+
+String.prototype.beginsWith = function (string) {
+    return(this.indexOf(string) === 0);
+};
 
 String.prototype.endsWith = function (str) {
     var lastIndex = this.lastIndexOf(str);
