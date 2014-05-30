@@ -41,13 +41,22 @@ module.exports = function (config) {
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['progress', 'dots', 'junit', 'coverage', 'threshold'],
+        reporters: ['progress', 'dots', 'junit', 'coverage', 'coveralls', 'threshold'],
 
 	thresholdReporter: {
 	      statements: 90,
 	      branches: 60,
 	      functions: 85,
 	      lines: 90
+	},
+
+	coverageReporter: {
+	    type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
+	    dir: 'coverage/'
+	},
+
+	coverallsReporter: {
+		    repoToken: '5f0AQCQM1vrbCwhZgzaDJMFUQ4qNxsUha'
 	},
 
 
@@ -65,7 +74,7 @@ module.exports = function (config) {
 
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        autoWatch: false,
 
 
         // Start these browsers, currently available:
