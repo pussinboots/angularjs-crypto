@@ -3,12 +3,9 @@ angularjs-crypto
 [![Build Status](https://travis-ci.org/pussinboots/angularjs-crypto.svg?branch=master)](https://travis-ci.org/pussinboots/angularjs-crypto)
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/angularjs-crypto.svg)](https://coveralls.io/r/pussinboots/angularjs-crypto?branch=master)
 [![Dependencies](https://david-dm.org/pussinboots/angularjs-crypto.png)](https://david-dm.org/pussinboots/angularjs-crypto)
+[![heroku failed](https://angularjs-crypto.herokuapp.com/images/heroku-badge.png "heroku failed")](https://angularjs-crypto.herokuapp.com/products-e2e.html)
 
 AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
-
-Continous Integration
-------------
-* [travis](https://travis-ci.org/pussinboots/angularjs-crypto)
 
 Dependencies
 ------------
