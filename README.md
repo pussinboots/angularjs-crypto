@@ -1,4 +1,4 @@
-angularjs-crypto
+[angularjs-crypto](http://ngmodules.org/modules/angularjs-crypto)
 ==================
 [![Build Status](https://travis-ci.org/pussinboots/angularjs-crypto.svg?branch=master)](https://travis-ci.org/pussinboots/angularjs-crypto)
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/angularjs-crypto.svg)](https://coveralls.io/r/pussinboots/angularjs-crypto?branch=master)
