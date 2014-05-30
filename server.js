@@ -1,5 +1,6 @@
 var connect = require('connect');
+var serveStatic = require('serve-static');
 var port = Number(process.env.PORT || 9000);
 var server = connect().
-    use(connect.static(__dirname+'/public')).
+    use(serveStatic(__dirname+'/public')).
     listen(port);
