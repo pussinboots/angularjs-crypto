@@ -14,7 +14,7 @@ Dependencies
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
-##Usage (bower)
+##Install (bower)
 
 * bower install angularjs-crypto
 * js file is under the [bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js
@@ -24,7 +24,7 @@ Dependencies
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
 ```
 
-##Usage (manual)
+##Install (manual)
 
 * download [js file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 * added javascript file to your app html file
@@ -33,6 +33,9 @@ Dependencies
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
 ```
+
+##Usage
+
 * configure the http request for automatic decryption/encryption detection by setting property crypt:true
 
 * add modul dependency ('angularjs-crypto') to angular
