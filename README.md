@@ -14,7 +14,12 @@ Dependencies
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
-##Usage
+##Usage (bower)
+
+* bower install angularjs-crypto
+* js file is under the [bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js
+
+##Usage (manual)
 
 * download [js file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 * added javascript file to your app html file
