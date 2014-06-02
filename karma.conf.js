@@ -37,7 +37,7 @@ module.exports = function (config) {
             'public/test/lib/angular/jstd-scenario-adapter.js'
         ],
 
-        preprocessors: { 'public/js/*.js': ['coverage'],'public/js/lib/*.js': ['coverage'] },
+        preprocessors: { 'public/js/*.js': ['coverage'],'public/js/lib/*.js': ['coverage'], 'public/test/unit/*.js': ['coverage'] },
 
 
         // test results reporter to use
