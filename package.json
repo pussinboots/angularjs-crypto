@@ -10,6 +10,9 @@
   "engines": {
     "node": "0.10.x"
   },
+  "main": [
+    "public/js/lib/angularjs-crypto.js"
+  ],
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run", 
     "postinstall": "./node_modules/bower/bin/bower install"
