@@ -1,0 +1,7 @@
+{
+      "directory": "public/components",
+      "json": "bower.json",
+       "scripts": {
+	    "postinstall": "./wiredep_karma.js -s public/index.html -s karma.conf.js"
+	  }
+}

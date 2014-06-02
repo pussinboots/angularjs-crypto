@@ -14,11 +14,12 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js',
-            'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js',
-            'http://code.angularjs.org/1.2.16/angular-resource.js',
-            'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-cookies.js',
-            'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js',
+            // bower:js
+            'public/components/angular/angular.js',
+            'public/components/angular-cookies/angular-cookies.js',
+            'public/components/angular-resource/angular-resource.js',
+            'public/components/angular-route/angular-route.js',
+            // endbower
 	    'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-mocks.js',
  	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
     	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
