@@ -6,10 +6,11 @@ before_script:
 - sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
 - sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
   add -'
-- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+# chrome is disabled in karma
+#- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 - sudo apt-get update
 - sudo apt-get install opera
-- sudo apt-get install google-chrome-stable
+#- sudo apt-get install google-chrome-stable
 node_js:
 - 0.1
 deploy:
