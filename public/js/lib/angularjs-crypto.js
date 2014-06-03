@@ -11,9 +11,20 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         if (!data)
                             return $q.reject(request);
                         crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
-                    } else if (( typeof( request.params ) != "undefined") ){
+                    } else if (( typeof( request.params ) != "undefined") && shouldCrypt){
 			crypt(request.params, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
+		    } else if ((request.fullcryptbody || false)) {
+                        var data = request.data;
+                        if (!data)
+                            return $q.reject(request);
+                        request.data = cfCryptoHttpInterceptor.encodeFunc(JSON.stringify(data),cfCryptoHttpInterceptor.base64Key)
+			console.log("encode full body " + request.data);
+                    } else if (( typeof( request.params ) != "undefined") && (request.fullcryptquery || false) ){
+			console.log("encode full query " + request.params);
+			request.params = {query:cfCryptoHttpInterceptor.encodeFunc(JSON.stringify(request.params),cfCryptoHttpInterceptor.base64Key)}
+			console.log("encode full query " + request.params);
 		    }
+		    
                     return request;
                 },
                 response: function (response) {
