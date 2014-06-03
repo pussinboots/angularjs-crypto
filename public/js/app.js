@@ -7,6 +7,8 @@ demoApp.config(function ($routeProvider) {
     $routeProvider
         .when('/get', { templateUrl: 'partials/get.html', controller: DecodeGetController})
         .when('/query', { templateUrl: 'partials/query.html', controller: EncodeQueryGetController})
+        .when('/fullquery', { templateUrl: 'partials/fullquery.html', controller: EncodeFullQueryGetController})
+        .when('/fullbody', { templateUrl: 'partials/fullbody.html', controller: EncodeBodyPostController})
 	.when('/empty', { templateUrl: 'partials/empty.html', controller: EmptyController})
         .when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController})
         .when('/key', { templateUrl: 'partials/key.html'})
