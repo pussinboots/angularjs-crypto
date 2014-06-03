@@ -88,6 +88,7 @@ Todos
 
 Features
 -------------
+* encoding of complete query and body for requests
 * encoding of query parameter fields that end with the pattern
 * configuration of encode/decode function so that you can plugin in your own implementation
 * configuration of the aes secret key to use for encryption/decryption
@@ -146,6 +147,26 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }])
 ```
 
+#### Complete encoding of query parameter
+
+```js
+$provide.factory('Data', function ($resource) {
+        return $resource('/assets/config', {}, {
+	        queryFullCrypt: {method: 'GET', isArray: false, fullcryptquery:true}
+        });
+    });
+```
+
+#### Complete encoding of body
+
+```js
+$provide.factory('Data', function ($resource) {
+        return $resource('/assets/config', {}, {
+            saveFullCrypt: {method: 'POST',  fullcryptbody:true}
+        });
+    });
+```
+
 ##Example
 
 #### Key Example
@@ -180,6 +201,9 @@ The http calls are mocked with angular-mock.
 
 [Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/products-e2e.html#/query)
 
+[Complete query encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullquery)
+
+[Complete body encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullbody)
 [Change base64Key Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/key)
 
 local
@@ -201,6 +225,8 @@ Then go to
 * [Post Example](http://localhost:9000/products-e2e.html#/post)
 * [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
 * [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
+* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
+* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
 
 Start it with nodejs
 
@@ -212,6 +238,8 @@ Then go to
 * [Post Example](http://localhost:9000/products-e2e.html#/post)
 * [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
 * [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
+* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
+* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
 
 Or run the karma test local with 
 
