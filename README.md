@@ -11,7 +11,7 @@ AngularJS Module that integrate cryptography functionality offers from the [cryp
 
 Dependencies
 ------------
-- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4)
+- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4 and 1.2.16)
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
