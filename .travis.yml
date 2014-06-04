@@ -6,11 +6,8 @@ before_script:
 - sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
 - sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
   add -'
-# chrome is disabled in karma
-#- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 - sudo apt-get update
 - sudo apt-get install opera
-#- sudo apt-get install google-chrome-stable
 node_js:
 - 0.1
 deploy:
@@ -24,7 +21,11 @@ before_deploy:
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/69a4be3312f3f3a0a25b
-    on_success: always  # options: [always|never|change] default: always
-    on_failure: always  # options: [always|never|change] default: always
-    on_start: false     # default: false
+    - https://webhooks.gitter.im/e/69a4be3312f3f3a0a25b
+    on_success: always
+    on_failure: always
+    on_start: false
+env:
+  global:
+  - secure: UCE+iAMEYy0lsptBFe643/RPL23xbW3QelvgOdR/m8KKVT/N6BcsHyzgtKY2Sr4HHuL17zoVr/RFbkCfN9/u//Zfudl7p/LgdccCXMsyWXy5L2ovGquRsS4iN3glFKG+PKl7l+Qe7F6wueVjWsGmjAB+P/xFEzmYCtAMxD42YLU=
+  - secure: MPzm10FDUGNdhH4SPk/yiJbEMnwPW0cNN09Gq0gIFX6VY7hhHIMjgYXtmD1lIVPevtdP2+m9z1OrpNo13VExZz9srx3h449E6W8/w7SxQRGjAcS/wNZhl9Nztf2xk/nwMW8VVwD8i5wJFVjkCfni7ZspfYlZ8mZuo6pLfk5MCbs=
