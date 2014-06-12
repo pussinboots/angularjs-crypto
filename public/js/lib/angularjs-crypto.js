@@ -1,49 +1,48 @@
 var cryptoModule = angular.module('angularjs-crypto', []);
-cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', function ($q, $rootScope, cfCryptoHttpInterceptor) {
-    .config(['$httpProvider', function ($httpProvider) {
-        var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfg) {
-            return {
-                request: function (request) {
-                    var shouldCrypt = (request.crypt || false);
-                    if (checkHeaderJson(request.headers['Content-Type']) && shouldCrypt == true) {
-                        var data = request.data;
-                        console.log("intercept request " + angular.toJson(data));
-                        if (!data)
-                            return $q.reject(request);
-                        crypt(data, cfg.pattern, cfg.encodeFunc, cfg.key())
-                    } else if (( typeof( request.params ) != "undefined") && shouldCrypt){
-			crypt(request.params, cfg.pattern, cfg.encodeFunc, cfg.key())
-		    } else if ((request.fullcryptbody || false)) {
-                        var data = request.data;
-                        if (!data)
-                            return $q.reject(request);
-                        request.data = cfg.encodeFunc(JSON.stringify(data), cfg.key())
-			console.log("encode full body " + request.data);
-                    } else if (( typeof( request.params ) != "undefined") && (request.fullcryptquery || false) ){
-			console.log("encode full query " + request.params);
-			request.params = {query:cfg.encodeFunc(JSON.stringify(request.params),cfg.key())}
-			console.log("encode full query " + request.params);
-		    }
-		    
-                    return request;
-                },
-                response: function (response) {
-                    var shouldCrypt = (response.config || false).crypt;
-                    if (checkHeaderJson(response.headers()['content-type']) && shouldCrypt == true) {
-                        var data = response.data;
-                        console.log("intercept response " + angular.toJson(data));
-                        if (!data)
-                            return $q.reject(response);
-                        crypt(data, cfg.pattern, cfg.decodeFunc, cfg.key())
-                    }
- 		    if (cfg.responseWithQueryParams && ( typeof( response.data ) != "undefined") && response.data != null) {
-			response.data.$queryParams = response.config.params;
-		    }
-                    return response;
+cryptoModule.config(['$httpProvider', function ($httpProvider) {
+    var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfg) {
+        return {
+            request: function (request) {
+                var shouldCrypt = (request.crypt || false);
+                if (checkHeaderJson(request.headers['Content-Type']) && shouldCrypt == true) {
+                    var data = request.data;
+                    console.log("intercept request " + angular.toJson(data));
+                    if (!data)
+                        return $q.reject(request);
+                    crypt(data, cfg.pattern, cfg.encodeFunc, cfg.key())
+                } else if (( typeof( request.params ) != "undefined") && shouldCrypt) {
+                    crypt(request.params, cfg.pattern, cfg.encodeFunc, cfg.key())
+                } else if ((request.fullcryptbody || false)) {
+                    var data = request.data;
+                    if (!data) return $q.reject(request);
+                    request.data = cfg.encodeFunc(JSON.stringify(data), cfg.key())
+                    console.log("encode full body " + request.data);
+                } else if (( typeof( request.params ) != "undefined") && (request.fullcryptquery || false)) {
+                    console.log("encode full query " + request.params);
+                    request.params = {query:cfg.encodeFunc(JSON.stringify(request.params),cfg.key())}
+                    console.log("encode full query " + request.params);
                 }
-            };
-        }]
-        $httpProvider.interceptors.push(interceptor);
+                return request;
+            },
+            response: function (response) {
+                var shouldCrypt = (response.config || false).crypt;
+                if (checkHeaderJson(response.headers()['content-type']) && shouldCrypt == true) {
+                    var data = response.data;
+                    console.log("intercept response " + angular.toJson(data));
+                    if (!data)
+                        return $q.reject(response);
+                    crypt(data, cfg.pattern, cfg.decodeFunc, cfg.key())
+                }
+                if (cfg.responseWithQueryParams && 
+                    (typeof( response.data ) != "undefined") && 
+                    response.data != null) {
+                    response.data.$queryParams = response.config.params;
+                }
+                return response;
+            }
+        };
+    }]
+    $httpProvider.interceptors.push(interceptor);
 }]);
 
 cryptoModule.provider('cfCryptoHttpInterceptor', function () {
@@ -57,14 +56,14 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.$get = function () {
         return {
             base64Key: this.base64Key,
-	    base64KeyFunc: this.base64KeyFunc,
+            base64KeyFunc: this.base64KeyFunc,
             key: function() {
                 return this.base64Key || this.base64KeyFunc()
             },
             pattern: this.pattern,
             encodeFunc: this.encodeFunc,
             decodeFunc: this.decodeFunc,
-	    responseWithQueryParams: this.responseWithQueryParams
+            responseWithQueryParams: this.responseWithQueryParams
         };
     };
 });
