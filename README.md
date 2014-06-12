@@ -196,16 +196,16 @@ live
 
 The http calls are mocked with angular-mock.
 
-[Http Get Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/get)
+[Http Get Example](http://angularjs-crypto.herokuapp.com/#/get)
 
-[Http Post Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/post)
+[Http Post Example](http://angularjs-crypto.herokuapp.com/#/post)
 
-[Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/products-e2e.html#/query)
+[Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/#/query)
 
-[Complete query encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullquery)
+[Complete query encoding](http://angularjs-crypto.herokuapp.com/#/fullquery)
 
-[Complete body encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullbody)
-[Change base64Key Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/key)
+[Complete body encoding](http://angularjs-crypto.herokuapp.com/#/fullbody)
+[Change base64Key Example](http://angularjs-crypto.herokuapp.com/#/key)
 
 local
 ------
@@ -222,12 +222,12 @@ Start it with play
     play run
     
 Then go to
-* [Get Example](http://localhost:9000/products-e2e.html#/get)
-* [Post Example](http://localhost:9000/products-e2e.html#/post)
-* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
-* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
-* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
-* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
+* [Get Example](http://localhost:9000/#/get)
+* [Post Example](http://localhost:9000/#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/#/query)
+* [Change base64Key Example](http://localhost:9000/#/key)
+* [Complete query encoding](http://localhost:9000/#/fullquery)
+* [Complete body encoding](http://localhost:9000/#/fullbody)
 
 Start it with nodejs
 
@@ -235,12 +235,12 @@ Start it with nodejs
     
 
 Then go to
-* [Get Example](http://localhost:9000/products-e2e.html#/get)
-* [Post Example](http://localhost:9000/products-e2e.html#/post)
-* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
-* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
-* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
-* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
+* [Get Example](http://localhost:9000/#/get)
+* [Post Example](http://localhost:9000/#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/#/query)
+* [Change base64Key Example](http://localhost:9000/#/key)
+* [Complete query encoding](http://localhost:9000/#/fullquery)
+* [Complete body encoding](http://localhost:9000/#/fullbody)
 
 Or run the karma test local with 
 
