@@ -1,7 +1,7 @@
 var cryptoModule = angular.module('angularjs-crypto', []);
 cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', function ($q, $rootScope, cfCryptoHttpInterceptor) {
     .config(['$httpProvider', function ($httpProvider) {
-        var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfCryptoHttpInterceptor) {
+        var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfg) {
             return {
                 request: function (request) {
                     var shouldCrypt = (request.crypt || false);
@@ -10,18 +10,18 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept request " + angular.toJson(data));
                         if (!data)
                             return $q.reject(request);
-                        crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfg.pattern, cfg.encodeFunc, cfg.key())
                     } else if (( typeof( request.params ) != "undefined") && shouldCrypt){
-			crypt(request.params, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.encodeFunc, cfCryptoHttpInterceptor.base64Key)
+			crypt(request.params, cfg.pattern, cfg.encodeFunc, cfg.key())
 		    } else if ((request.fullcryptbody || false)) {
                         var data = request.data;
                         if (!data)
                             return $q.reject(request);
-                        request.data = cfCryptoHttpInterceptor.encodeFunc(JSON.stringify(data),cfCryptoHttpInterceptor.base64Key)
+                        request.data = cfg.encodeFunc(JSON.stringify(data), cfg.key())
 			console.log("encode full body " + request.data);
                     } else if (( typeof( request.params ) != "undefined") && (request.fullcryptquery || false) ){
 			console.log("encode full query " + request.params);
-			request.params = {query:cfCryptoHttpInterceptor.encodeFunc(JSON.stringify(request.params),cfCryptoHttpInterceptor.base64Key)}
+			request.params = {query:cfg.encodeFunc(JSON.stringify(request.params),cfg.key())}
 			console.log("encode full query " + request.params);
 		    }
 		    
@@ -34,9 +34,9 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
                         console.log("intercept response " + angular.toJson(data));
                         if (!data)
                             return $q.reject(response);
-                        crypt(data, cfCryptoHttpInterceptor.pattern, cfCryptoHttpInterceptor.decodeFunc, cfCryptoHttpInterceptor.base64Key)
+                        crypt(data, cfg.pattern, cfg.decodeFunc, cfg.key())
                     }
- 		    if (cfCryptoHttpInterceptor.responseWithQueryParams && ( typeof( response.data ) != "undefined") && response.data != null) {
+ 		    if (cfg.responseWithQueryParams && ( typeof( response.data ) != "undefined") && response.data != null) {
 			response.data.$queryParams = response.config.params;
 		    }
                     return response;
@@ -47,7 +47,8 @@ cryptoModule//.factory('cryptoHttpInterceptor', ['cfCryptoHttpInterceptor', func
 }]);
 
 cryptoModule.provider('cfCryptoHttpInterceptor', function () {
-    this.base64Key = "";
+    this.base64Key;
+    this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
     this.encodeFunc = encode;
     this.decodeFunc = decode;
@@ -56,6 +57,10 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.$get = function () {
         return {
             base64Key: this.base64Key,
+	    base64KeyFunc: this.base64KeyFunc,
+            key: function() {
+                return this.base64Key || this.base64KeyFunc()
+            },
             pattern: this.pattern,
             encodeFunc: this.encodeFunc,
             decodeFunc: this.decodeFunc,

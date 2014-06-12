@@ -4,13 +4,14 @@
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/angularjs-crypto.svg)](https://coveralls.io/r/pussinboots/angularjs-crypto?branch=master)
 [![Dependencies](https://david-dm.org/pussinboots/angularjs-crypto.png)](https://david-dm.org/pussinboots/angularjs-crypto)
 [![Heroku](http://heroku-badge.heroku.com/?app=angularjs-crypto)](https://angularjs-crypto.herokuapp.com/products-e2e.html)
+[![status](https://sourcegraph.com/api/repos/github.com/pussinboots/angularjs-crypto/badges/status.png)](https://sourcegraph.com/github.com/pussinboots/angularjs-crypto)
 [![Gitter chat](https://badges.gitter.im/pussinboots/angularjs-crypto.png)](https://gitter.im/pussinboots/angularjs-crypto)
 
 AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
 
 Dependencies
 ------------
-- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4)
+- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4 and 1.2.16)
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
@@ -44,6 +45,7 @@ var demoApp = angular.module('demoApp', ['services', 'angularjs-crypto']);
 Example Service Definition
 
 * configure the http request for automatic decryption/encryption detection by setting property crypt:true
+
 ```js
 'use strict';
 
@@ -88,6 +90,7 @@ Todos
 
 Features
 -------------
+* configuration a function that return the aes secret key to use for encryption/decryption
 * encoding of complete query and body for requests
 * encoding of query parameter fields that end with the pattern
 * configuration of encode/decode function so that you can plugin in your own implementation
@@ -176,8 +179,22 @@ Change the base64Key locally by read it from the rootScope.
 ```js
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(function(cfCryptoHttpInterceptor, $rootScope) {
-    cfCryptoHttpInterceptor.base64Key = $rootScope.base64Key;//every time the base64Key is changed in the rootscope it affects the encryption/decryption also
+    cfCryptoHttpInterceptor.base64Key = $rootScope.base64Key;
     cfCryptoHttpInterceptor.pattern = "_enc"; //default value but for a better understanding it is also defined here
+})
+```
+
+#### Key Example Function
+
+Define a function which will be used to get the key for encryption/decryption is called 
+for every encryption/decryption process.
+
+```js
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(function(cfCryptoHttpInterceptor, $rootScope) {
+    cfCryptoHttpInterceptor.base64KeyFunc = function() {
+        return $rootScope.base64Key;
+    }
 })
 ```
 
@@ -195,16 +212,17 @@ live
 
 The http calls are mocked with angular-mock.
 
-[Http Get Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/get)
+[Http Get Example](http://angularjs-crypto.herokuapp.com/#/get)
 
-[Http Post Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/post)
+[Http Post Example](http://angularjs-crypto.herokuapp.com/#/post)
 
-[Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/products-e2e.html#/query)
+[Http Get query parameters encoding ](http://angularjs-crypto.herokuapp.com/#/query)
 
-[Complete query encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullquery)
+[Complete query encoding](http://angularjs-crypto.herokuapp.com/#/fullquery)
 
-[Complete body encoding](http://angularjs-crypto.herokuapp.com/products-e2e.html#/fullbody)
-[Change base64Key Example](http://angularjs-crypto.herokuapp.com/products-e2e.html#/key)
+[Complete body encoding](http://angularjs-crypto.herokuapp.com/#/fullbody)
+
+[Change base64Key Example](http://angularjs-crypto.herokuapp.com/#/key)
 
 local
 ------
@@ -214,19 +232,19 @@ Two ways to run the demo app local one with play or second with nodejs.
 Dependencies
 * play 2.2.3 (optional)
 * nodejs 0.10.28
-* (karma-test runner)[http://karma-runner.github.io/0.12/intro/installation.html]
+* [karma-test runner](http://karma-runner.github.io/0.12/intro/installation.html)
 
 Start it with play
 
     play run
     
 Then go to
-* [Get Example](http://localhost:9000/products-e2e.html#/get)
-* [Post Example](http://localhost:9000/products-e2e.html#/post)
-* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
-* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
-* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
-* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
+* [Get Example](http://localhost:9000/#/get)
+* [Post Example](http://localhost:9000/#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/#/query)
+* [Change base64Key Example](http://localhost:9000/#/key)
+* [Complete query encoding](http://localhost:9000/#/fullquery)
+* [Complete body encoding](http://localhost:9000/#/fullbody)
 
 Start it with nodejs
 
@@ -234,12 +252,12 @@ Start it with nodejs
     
 
 Then go to
-* [Get Example](http://localhost:9000/products-e2e.html#/get)
-* [Post Example](http://localhost:9000/products-e2e.html#/post)
-* [Http Get query parameters encoding ](http://localhost:9000/products-e2e.html#/query)
-* [Change base64Key Example](http://localhost:9000/products-e2e.html#/key)
-* [Complete query encoding](http://localhost:9000/products-e2e.html#/fullquery)
-* [Complete body encoding](http://localhost:9000/products-e2e.html#/fullbody)
+* [Get Example](http://localhost:9000/#/get)
+* [Post Example](http://localhost:9000/#/post)
+* [Http Get query parameters encoding ](http://localhost:9000/#/query)
+* [Change base64Key Example](http://localhost:9000/#/key)
+* [Complete query encoding](http://localhost:9000/#/fullquery)
+* [Complete body encoding](http://localhost:9000/#/fullbody)
 
 Or run the karma test local with 
 
