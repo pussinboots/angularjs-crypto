@@ -45,6 +45,7 @@ var demoApp = angular.module('demoApp', ['services', 'angularjs-crypto']);
 Example Service Definition
 
 * configure the http request for automatic decryption/encryption detection by setting property crypt:true
+
 ```js
 'use strict';
 
@@ -89,6 +90,7 @@ Todos
 
 Features
 -------------
+* configuration a function that return the aes secret key to use for encryption/decryption
 * encoding of complete query and body for requests
 * encoding of query parameter fields that end with the pattern
 * configuration of encode/decode function so that you can plugin in your own implementation
@@ -177,8 +179,22 @@ Change the base64Key locally by read it from the rootScope.
 ```js
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(function(cfCryptoHttpInterceptor, $rootScope) {
-    cfCryptoHttpInterceptor.base64Key = $rootScope.base64Key;//every time the base64Key is changed in the rootscope it affects the encryption/decryption also
+    cfCryptoHttpInterceptor.base64Key = $rootScope.base64Key;
     cfCryptoHttpInterceptor.pattern = "_enc"; //default value but for a better understanding it is also defined here
+})
+```
+
+#### Key Example Function
+
+Define a function which will be used to get the key for encryption/decryption is called 
+for every encryption/decryption process.
+
+```js
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(function(cfCryptoHttpInterceptor, $rootScope) {
+    cfCryptoHttpInterceptor.base64KeyFunc = function() {
+        return $rootScope.base64Key;
+    }
 })
 ```
 
@@ -205,6 +221,7 @@ The http calls are mocked with angular-mock.
 [Complete query encoding](http://angularjs-crypto.herokuapp.com/#/fullquery)
 
 [Complete body encoding](http://angularjs-crypto.herokuapp.com/#/fullbody)
+
 [Change base64Key Example](http://angularjs-crypto.herokuapp.com/#/key)
 
 local
@@ -215,7 +232,7 @@ Two ways to run the demo app local one with play or second with nodejs.
 Dependencies
 * play 2.2.3 (optional)
 * nodejs 0.10.28
-* (karma-test runner)[http://karma-runner.github.io/0.12/intro/installation.html]
+* [karma-test runner](http://karma-runner.github.io/0.12/intro/installation.html)
 
 Start it with play
 
