@@ -90,7 +90,7 @@ function decode(encryptedValue, base64Key) {
     //TODO make key configurable
     //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
     //console.log( "base64Key = " + base64Key );
-
+    if (base64Key.length<=0) return encryptedValue;
     var key = CryptoJS.enc.Base64.parse(base64Key);
     // this is the decrypted data as a sequence of bytes
     var decryptedData = CryptoJS.AES.decrypt(encryptedValue, key, {
