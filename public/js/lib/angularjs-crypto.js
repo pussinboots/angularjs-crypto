@@ -4,6 +4,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
         return {
             request: function (request) {
                 var shouldCrypt = (request.crypt || false);
+                if( shouldCrypt && typeof(CryptoJS) === 'undefined' && cfg.key().length>0) { return $q.reject('CryptoJS missing') }
                 if (checkHeaderJson(request.headers['Content-Type']) && shouldCrypt == true) {
                     var data = request.data;
                     console.log("intercept request " + angular.toJson(data));
@@ -26,6 +27,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
             },
             response: function (response) {
                 var shouldCrypt = (response.config || false).crypt;
+                if( shouldCrypt && typeof(CryptoJS) === 'undefined' && cfg.key().length>0) { return $q.reject('CryptoJS missing') }
                 if (checkHeaderJson(response.headers()['content-type']) && shouldCrypt == true) {
                     var data = response.data;
                     console.log("intercept response " + angular.toJson(data));
