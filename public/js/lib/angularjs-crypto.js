@@ -71,6 +71,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
 //TODO problem with global namespace maybe
 function encode(plainValue, base64Key) {
     if (!plainValue) { return plainValue; }
+    if (base64Key.length<=0) return plainValue;
     //TODO make key configurable
     //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
     //console.log( "base64Key = " + base64Key );
