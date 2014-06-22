@@ -1,12 +1,11 @@
-[![Bower version](https://badge.fury.io/bo/angularjs-crypto.png)](http://badge.fury.io/bo/angularjs-crypto)
-
 [angularjs-crypto](http://ngmodules.org/modules/angularjs-crypto)  
 ==================
 [![Build Status](https://travis-ci.org/pussinboots/angularjs-crypto.svg?branch=master)](https://travis-ci.org/pussinboots/angularjs-crypto)
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/angularjs-crypto.svg)](https://coveralls.io/r/pussinboots/angularjs-crypto?branch=master)
 [![Dependencies](https://david-dm.org/pussinboots/angularjs-crypto.png)](https://david-dm.org/pussinboots/angularjs-crypto)
 [![Heroku](http://heroku-badge.heroku.com/?app=angularjs-crypto)](https://angularjs-crypto.herokuapp.com/products-e2e.html)
-[![status](https://sourcegraph.com/api/repos/github.com/pussinboots/angularjs-crypto/badges/status.png)](https://sourcegraph.com/github.com/pussinboots/angularjs-crypto)
+[![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/angularjs-crypt/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/angularjs-crypt/builds)
+
 [![Gitter chat](https://badges.gitter.im/pussinboots/angularjs-crypto.png)](https://gitter.im/pussinboots/angularjs-crypto)
 
 AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
