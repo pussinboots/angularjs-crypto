@@ -6,9 +6,9 @@
 [![Heroku](http://heroku-badge.heroku.com/?app=angularjs-crypto)](https://angularjs-crypto.herokuapp.com/products-e2e.html)
 [![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/angularjs-crypto/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/angularjs-crypto/builds)
 
-
-
 [![Gitter chat](https://badges.gitter.im/pussinboots/angularjs-crypto.png)](https://gitter.im/pussinboots/angularjs-crypto)
+
+[![Test Results](http://unitcover.herokuapp.com/api/pussinboots/unitcover/testsuites/badge)](http://unitcover.herokuapp.com/#/builds/pussinboots/unitcover/builds)
 
 AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
 
