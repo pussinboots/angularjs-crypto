@@ -2,12 +2,11 @@ language: node_js
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
-- sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-- sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
-  add -'
-- sudo apt-get update
-- sudo apt-get install opera
+#- sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+#- sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+#- sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+#- sudo apt-get update
+#- sudo apt-get install opera
 node_js:
 - 0.1
 deploy:
