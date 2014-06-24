@@ -82,7 +82,7 @@ module.exports = function (config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        browsers: ['Firefox','Opera'/*, 'Chrome_without_security','Chrome'*/], //Chrome not started in travis ci
+        browsers: ['Firefox'/*,'Opera', 'Chrome_without_security','Chrome'*/], //Chrome not started in travis ci
 	
 	/*customLaunchers: {
 	      Chrome_without_security: {
