@@ -2,11 +2,6 @@ language: node_js
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-#- sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
-#- sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-#- sudo sh -c 'wget -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-#- sudo apt-get update
-#- sudo apt-get install opera
 node_js:
 - 0.1
 deploy:
@@ -29,8 +24,7 @@ notifications:
     on_start: false
 env:
   matrix:
-#    - JOB=unit
-    - JOB=saucelabs
+  - JOB=saucelabs
   global:
-    - secure: UCE+iAMEYy0lsptBFe643/RPL23xbW3QelvgOdR/m8KKVT/N6BcsHyzgtKY2Sr4HHuL17zoVr/RFbkCfN9/u//Zfudl7p/LgdccCXMsyWXy5L2ovGquRsS4iN3glFKG+PKl7l+Qe7F6wueVjWsGmjAB+P/xFEzmYCtAMxD42YLU=
-    - secure: MPzm10FDUGNdhH4SPk/yiJbEMnwPW0cNN09Gq0gIFX6VY7hhHIMjgYXtmD1lIVPevtdP2+m9z1OrpNo13VExZz9srx3h449E6W8/w7SxQRGjAcS/wNZhl9Nztf2xk/nwMW8VVwD8i5wJFVjkCfni7ZspfYlZ8mZuo6pLfk5MCbs=
+  - secure: Ru3VCdqIFZgf9if2Ca/ChGFZq6Q44ZzNV0qMdP6w6aWLIWFv2I3RXm5BDsIdahqEVEP/8O6i8wChojVZn9QLc0OMwy/qyljYB0fb9HJ1rwpHiJ9/B8hxkZr+BtvdJ8jHU9c+x9mUf+j6WWnY1DX4OPEPp0zEcdyhP0nQ7cCzTA8=
+  - secure: iN1FgOjfMKze9gDfrIMO1oCXL87/Tpkj9aZ1G9Dpz0ACQke3msdP13Lpy5ZWuFYA0inzA1DiQKpUK8lD2+SJd54PmrZdZMDVgxSSgq/5IwYrINb5hN+X7APYh0bCl4UwKhD278wiyy5HhfKX/fsj8e+tWieR4atk6jzMxBHikXE=
