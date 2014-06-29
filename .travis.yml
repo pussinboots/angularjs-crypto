@@ -28,6 +28,9 @@ notifications:
     on_failure: always
     on_start: false
 env:
+  matrix:
+    - JOB=unit
+    - JOB=sauce
   global:
-  - secure: UCE+iAMEYy0lsptBFe643/RPL23xbW3QelvgOdR/m8KKVT/N6BcsHyzgtKY2Sr4HHuL17zoVr/RFbkCfN9/u//Zfudl7p/LgdccCXMsyWXy5L2ovGquRsS4iN3glFKG+PKl7l+Qe7F6wueVjWsGmjAB+P/xFEzmYCtAMxD42YLU=
-  - secure: MPzm10FDUGNdhH4SPk/yiJbEMnwPW0cNN09Gq0gIFX6VY7hhHIMjgYXtmD1lIVPevtdP2+m9z1OrpNo13VExZz9srx3h449E6W8/w7SxQRGjAcS/wNZhl9Nztf2xk/nwMW8VVwD8i5wJFVjkCfni7ZspfYlZ8mZuo6pLfk5MCbs=
+    - secure: UCE+iAMEYy0lsptBFe643/RPL23xbW3QelvgOdR/m8KKVT/N6BcsHyzgtKY2Sr4HHuL17zoVr/RFbkCfN9/u//Zfudl7p/LgdccCXMsyWXy5L2ovGquRsS4iN3glFKG+PKl7l+Qe7F6wueVjWsGmjAB+P/xFEzmYCtAMxD42YLU=
+    - secure: MPzm10FDUGNdhH4SPk/yiJbEMnwPW0cNN09Gq0gIFX6VY7hhHIMjgYXtmD1lIVPevtdP2+m9z1OrpNo13VExZz9srx3h449E6W8/w7SxQRGjAcS/wNZhl9Nztf2xk/nwMW8VVwD8i5wJFVjkCfni7ZspfYlZ8mZuo6pLfk5MCbs=
