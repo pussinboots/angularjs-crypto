@@ -29,7 +29,7 @@ notifications:
     on_start: false
 env:
   matrix:
-    - JOB=unit
+#    - JOB=unit
     - JOB=saucelabs
   global:
     - secure: UCE+iAMEYy0lsptBFe643/RPL23xbW3QelvgOdR/m8KKVT/N6BcsHyzgtKY2Sr4HHuL17zoVr/RFbkCfN9/u//Zfudl7p/LgdccCXMsyWXy5L2ovGquRsS4iN3glFKG+PKl7l+Qe7F6wueVjWsGmjAB+P/xFEzmYCtAMxD42YLU=
