@@ -86,8 +86,7 @@ Todos
 * configurable error handling strict or elegant mode 
 * support for http ajax calls missing only ng resource calls are supported
 * aggressive console logging is active for development maybe make it configurable
-* configuration the cipher algorithm to use (aes hard coded at the momment)
-* configuration of the keys to used for the configured cipher (at the moment hard coded key)
+* configuration the cipher algorithm to use (aes hard coded at the momment) (done see []()))
 * implements missing ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
  * DES
  * riple DES
@@ -131,28 +130,20 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }])
 ```
 
-#### Set own encode function to use
+#### Set own plugin implementation for encoding and decoding
 
+This make it now possible to simple add other CryptoJs cipher implementations like DES or even other crypto libraries as well. If i find the time than i will add at least the supported cipher from CryptoJs. An example implementation that use Crypto AES can be found [here](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/CryptoJSPlugin.js)
 ```js
-function encode(plainValue /*plain value to encode*/, base64Key /*the configured base64 string*/) {
-    // encoding here
-    return //return encoded;
-}
 var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
- cfCryptoHttpInterceptor.encodeFunc = encode; //that is the default value
-}])
-```
-
-#### Set own decode function to use
-
-```js
-function decode(encryptedValue/* encrypted value as string*/, base64Key /*the configured base64 string*/) {
-    return  //decoded plain value as string;
-}
-var demoApp = angular.module('demoApp', ['angularjs-crypto']);
-demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
- cfCryptoHttpInterceptor.decodeFunc = decode; //that is the default value
+ cfCryptoHttpInterceptor.plugin = {
+        encode: function(plainValue, base64Key) {
+		    return plainValue;
+                },
+        decode : function(encryptedValue, base64Key) {
+                    return encryptedValue;
+                }
+    };
 }])
 ```
 
