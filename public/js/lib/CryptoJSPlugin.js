@@ -1,10 +1,9 @@
-//TODO problem with global namespace maybe
+'use strict';
 function CryptoJSAES(mode, padding) {
     var mode = mode;
     var padding = padding;
     return {
         encode: function(plainValue, base64Key) {
-                    var self = this;
                     if (!plainValue) { return plainValue; }
                     if (base64Key.length<=0) return plainValue;
                     
@@ -19,7 +18,6 @@ function CryptoJSAES(mode, padding) {
                     return encryprtedData.toString();
                 },
         decode : function(encryptedValue, base64Key) {
-                    var self = this;
                     if (base64Key.length<=0) return encryptedValue;
                     var key = CryptoJS.enc.Base64.parse(base64Key);
                     // this is the decrypted data as a sequence of bytes
