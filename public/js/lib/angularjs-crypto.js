@@ -1,39 +1,52 @@
+'use strict';
+
+function missingCryptoJs(shouldCrypt, cfg, q) {
+    if (!shouldCrypt) return false;
+	if (cfg.key().length <= 0) return false;
+    if (typeof(CryptoJS) === 'undefined') return true;
+}
 var cryptoModule = angular.module('angularjs-crypto', []);
 cryptoModule.config(['$httpProvider', function ($httpProvider) {
     var interceptor = ['$q', 'cfCryptoHttpInterceptor', function ($q, cfg) {
         return {
             request: function (request) {
                 var shouldCrypt = (request.crypt || false);
-                if( shouldCrypt && typeof(CryptoJS) === 'undefined' && cfg.key().length>0) { return $q.reject('CryptoJS missing') }
-                if (checkHeaderJson(request.headers['Content-Type']) && shouldCrypt == true) {
-                    var data = request.data;
-                    console.log("intercept request " + angular.toJson(data));
-                    if (!data)
-                        return $q.reject(request);
-                    crypt(data, cfg.pattern, cfg.encodeFunc, cfg.key())
-                } else if (( typeof( request.params ) != "undefined") && shouldCrypt) {
-                    crypt(request.params, cfg.pattern, cfg.encodeFunc, cfg.key())
+                if (missingCryptoJs(shouldCrypt, cfg, $q)) {
+                    return q.reject('CryptoJS missing');
+                }
+                var data = request.data;
+                if (shouldCrypt === true) {
+                    if (checkHeaderJson(request.headers['Content-Type'])) {
+                        console.log("intercept request " + angular.toJson(data));
+                        if (!data) return $q.reject(request);
+                        encrypt(data, cfg);
+                    } else if (( typeof( request.params ) != "undefined")) {
+                        encrypt(request.params, cfg);
+                    }
                 } else if ((request.fullcryptbody || false)) {
-                    var data = request.data;
                     if (!data) return $q.reject(request);
-                    request.data = cfg.encodeFunc(JSON.stringify(data), cfg.key())
+                    request.data = cfg.plugin.encode(JSON.stringify(data), cfg.key())
                     console.log("encode full body " + request.data);
-                } else if (( typeof( request.params ) != "undefined") && (request.fullcryptquery || false)) {
-                    console.log("encode full query " + request.params);
-                    request.params = {query:cfg.encodeFunc(JSON.stringify(request.params),cfg.key())}
-                    console.log("encode full query " + request.params);
+            	} else if (( typeof( request.params ) != "undefined")) {
+                        console.log("encode full query " + request.params);
+                        request.params = {query:cfg.plugin.encode(JSON.stringify(request.params),cfg.key())}
+                        console.log("encode full query " + request.params);
                 }
                 return request;
             },
             response: function (response) {
                 var shouldCrypt = (response.config || false).crypt;
-                if( shouldCrypt && typeof(CryptoJS) === 'undefined' && cfg.key().length>0) { return $q.reject('CryptoJS missing') }
-                if (checkHeaderJson(response.headers()['content-type']) && shouldCrypt == true) {
-                    var data = response.data;
-                    console.log("intercept response " + angular.toJson(data));
-                    if (!data)
-                        return $q.reject(response);
-                    crypt(data, cfg.pattern, cfg.decodeFunc, cfg.key())
+                if (missingCryptoJs(shouldCrypt, cfg, $q)) {
+                    return q.reject('CryptoJS missing');
+                }
+                if (shouldCrypt == true) {
+                    if (checkHeaderJson(response.headers()['content-type'])) {
+                        var data = response.data;
+                        console.log("intercept response " + angular.toJson(data));
+                        if (!data)
+                            return $q.reject(response);
+                        decrypt(data, cfg);
+                    }
                 }
                 if (cfg.responseWithQueryParams && 
                     (typeof( response.data ) != "undefined") && 
@@ -51,8 +64,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64Key;
     this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
-    this.encodeFunc = encode;
-    this.decodeFunc = decode;
+    this.plugin = new CryptoJSAES(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7);
     this.responseWithQueryParams = true;
 
     this.$get = function () {
@@ -63,46 +75,18 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
                 return this.base64Key || this.base64KeyFunc()
             },
             pattern: this.pattern,
-            encodeFunc: this.encodeFunc,
-            decodeFunc: this.decodeFunc,
+            plugin: this.plugin,
             responseWithQueryParams: this.responseWithQueryParams
         };
     };
 });
 
-//TODO problem with global namespace maybe
-function encode(plainValue, base64Key) {
-    if (!plainValue) { return plainValue; }
-    if (base64Key.length<=0) return plainValue;
-    //TODO make key configurable
-    //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
-    //console.log( "base64Key = " + base64Key );
-
-    var key = CryptoJS.enc.Base64.parse(base64Key);
-    // this is the decrypted data as a sequence of bytes
-    var encryprtedData = CryptoJS.AES.encrypt(plainValue, key, {
-        mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-    });
-
-    //var encryprtedValue = encryprtedData.toString( CryptoJS.enc.Base64);
-    return encryprtedData.toString();
+function decrypt(data, cfg) {
+	crypt(data, cfg.pattern, cfg.plugin.decode, cfg.key())   
 }
-
-function decode(encryptedValue, base64Key) {
-    //TODO make key configurable
-    //var base64Key = rootScope.baseKey;//"16rdKQfqN3L4TY7YktgxBw==";
-    //console.log( "base64Key = " + base64Key );
-    if (base64Key.length<=0) return encryptedValue;
-    var key = CryptoJS.enc.Base64.parse(base64Key);
-    // this is the decrypted data as a sequence of bytes
-    var decryptedData = CryptoJS.AES.decrypt(encryptedValue, key, {
-        mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-    });
-    return  decryptedData.toString(CryptoJS.enc.Utf8);
+function encrypt(data, cfg) {
+	crypt(data, cfg.pattern, cfg.plugin.encode, cfg.key())   
 }
-
 function crypt(events, pattern, callback, base64Key) {
     var keys = Object.keys(events);
     for (var i in keys) {
