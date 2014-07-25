@@ -86,7 +86,7 @@ Todos
 * configurable error handling strict or elegant mode 
 * support for http ajax calls missing only ng resource calls are supported
 * aggressive console logging is active for development maybe make it configurable
-* configuration the cipher algorithm to use (aes hard coded at the momment) (done see []()))
+* configuration the cipher algorithm to use (aes hard coded at the momment) (done [see](https://github.com/pussinboots/angularjs-crypto/blob/master/README.md#set-own-plugin-implementation-for-encoding-and-decoding)))
 * implements missing ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
  * DES
  * riple DES
