@@ -1,0 +1,6 @@
+repo: 
+    - pussinboots/vagrant-devel
+folder: /vagrant/project/angularjs-crypto
+deps: 
+    - sublime3
+    - nodejs
