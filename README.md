@@ -37,7 +37,7 @@ On Windows without ssh client
 ```bash
 vgit --g https --repo pussinboots/angularjs-crypto 
 ```
-That use https instead of ssh protocol. The ssh protocol is the default used protocol. So the first execution will take a while to download the vagrant [base box](https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly) defined in the Vagrantfile. Than it install the defined dependencies see below than login with vagrant/vagrant than you have a ready to use development environment for that project up and running. 
+That use https instead of ssh protocol. The ssh protocol is the default used protocol. So the first execution will take a while to download the vagrant [base box](https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly) defined in the Vagrantfile. Than it install the defined dependencies see below. When the login screen appear login with vagrant/vagrant than you have a ready to use development environment for that project up and running. The project will be checkout to the vagrant shared folder so that the Host and Guest operating systems can access the git clone.
 
 The vagrant-git configuration is defined in the [.vagrant.yml](.vagrant.yml) file. The configuration will be explained on the next line the [general explanetion](https://github.com/pussinboots/vagrant-git#project-configuration).
 ```yml
