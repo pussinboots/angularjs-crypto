@@ -14,7 +14,10 @@
     "test",
     "tests"
   ],
-  "main": "public/js/lib/angularjs-crypto.js",
+  "main": [
+    "public/js/lib/angularjs-crypto.js",
+    "public/js/lib/plugins/CryptoJSDESPlugin.js"
+  ],
   "dependencies": {
     "angular": "~1.2.16",
     "angular-cookies": "~1.2.16",
