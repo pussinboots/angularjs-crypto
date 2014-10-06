@@ -21,6 +21,42 @@ Dependencies
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
+##Development
+
+To simplify the checkout and the setup of a full development environment with all needed dependencies the  [vagrant-git](https://github.com/pussinboots/vagrant-git) project is used. 
+
+But before we can use the [vagrant-git](https://github.com/pussinboots/vagrant-git) project first install all [reequieremnts](https://github.com/pussinboots/vagrant-git#requirements). It is implemented as nodejs application. Than you can install the [vagrant-git](https://github.com/pussinboots/vagrant-git) project follow this [instruction](https://github.com/pussinboots/vagrant-git#install). Usage turorial can be found [here](https://github.com/pussinboots/vagrant-git#usage).
+
+To setup a development vagrant box for this project execute the command below.
+```bash
+vgit --repo pussinboots/angularjs-crypto 
+```
+It will checkpout the vagrant runtime repo and this project itslef.
+
+On Windows without ssh client
+```bash
+vgit --g https --repo pussinboots/angularjs-crypto 
+```
+That use https instead of ssh protocol. The ssh protocol is the default used protocol. So the first execution will take a while to download the vagrant [base box](https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly) defined in the Vagrantfile. Than it install the defined dependencies see below than login with vagrant/vagrant than you have a ready to use development environment for that project up and running. 
+
+The vagrant-git configuration is defined in the [.vagrant.yml](.vagrant.yml) file. The configuration will be explained on the next line the [general explanetion](https://github.com/pussinboots/vagrant-git#project-configuration).
+```yml
+repo: 
+    - pussinboots/vagrant-devel
+folder: /vagrant/project/angularjs-crypto
+deps: 
+    - sublime3
+    - nodejs
+```
+
+repo: defined the following github repo like https://github.com/pussinboots/vagrant-devel as the vagrant runtime repo where the [Vagrant configuration](https://github.com/pussinboots/vagrant-devel/blob/master/Vagrantfile) is placed that will be used for that project. 
+
+folder: is only information for the Developer that will pe display before vagrant startup so that he or sher knows where the angularjs-crypto project root folder can be found.
+
+deps: defined the dependencies to be installed during vagrant provision.
+
+
+
 ##Install (bower)
 
 * bower install angularjs-crypto
