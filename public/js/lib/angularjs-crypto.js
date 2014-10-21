@@ -64,7 +64,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64Key;
     this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
-    this.plugin = new CryptoJSAES(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7);
+    this.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
     this.responseWithQueryParams = true;
 
     this.$get = function () {
