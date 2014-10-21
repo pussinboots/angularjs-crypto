@@ -1,7 +1,8 @@
 'use strict';
-function CryptoJSDES(mode, padding) {
+function CryptoJSCipher(mode, padding, Cipher) {
     var mode = mode;
     var padding = padding;
+    var Cipher = Cipher;
     return {
         encode: function(plainValue, base64Key) {
                     if (!plainValue) { return plainValue; }
@@ -9,7 +10,7 @@ function CryptoJSDES(mode, padding) {
                     
                     var key = CryptoJS.enc.Base64.parse(base64Key);
                     // this is the decrypted data as a sequence of bytes
-                    var encryprtedData = CryptoJS.DES.encrypt(plainValue, key, {
+                    var encryprtedData = Cipher.encrypt(plainValue, key, {
                         mode: mode,
                         padding: padding
                     });
@@ -20,7 +21,7 @@ function CryptoJSDES(mode, padding) {
                     if (base64Key.length<=0) return encryptedValue;
                     var key = CryptoJS.enc.Base64.parse(base64Key);
                     // this is the decrypted data as a sequence of bytes
-                    var decryptedData = CryptoJS.DES.decrypt(encryptedValue, key, {
+                    var decryptedData = Cipher.decrypt(encryptedValue, key, {
                         mode: mode,
                         padding: padding
                     });
