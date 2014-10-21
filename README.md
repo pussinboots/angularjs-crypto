@@ -123,17 +123,19 @@ Issues
 Todos
 -------------
 * configurable error handling strict or elegant mode 
-* support for http ajax calls missing only ng resource calls are supported
+* support for http ajax calls missing only ng resource calls are supported (under investigation)
 * aggressive console logging is active for development maybe make it configurable
-* configuration the cipher algorithm to use (aes hard coded at the momment) (done [see](https://github.com/pussinboots/angularjs-crypto/blob/master/README.md#set-own-plugin-implementation-for-encoding-and-decoding)))
 * implements missing ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
- * DES
- * riple DES
- * Rabbit
  * RC4, RC4Drop
 
 Features
 -------------
+* implements ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
+ * AES
+ * DES
+ * Triple DES
+ * Rabbit
+* configuration the cipher algorithm to use (aes is configured as default) (done [see](https://github.com/pussinboots/angularjs-crypto/blob/master/README.md#set-own-plugin-implementation-for-encoding-and-decoding)))
 * configuration a function that return the aes secret key to use for encryption/decryption
 * encoding of complete query and body for requests
 * encoding of query parameter fields that end with the pattern
