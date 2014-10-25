@@ -125,8 +125,6 @@ Todos
 * configurable error handling strict or elegant mode 
 * support for http ajax calls missing only ng resource calls are supported (under investigation)
 * aggressive console logging is active for development maybe make it configurable
-* implements missing ciphers offered by the [crypto-js](https://code.google.com/p/crypto-js/) project
- * RC4, RC4Drop
 
 Features
 -------------
@@ -135,6 +133,7 @@ Features
  * DES
  * Triple DES
  * Rabbit
+ * RC4, RC4Drop
 * configuration the cipher algorithm to use (aes is configured as default) (done [see](https://github.com/pussinboots/angularjs-crypto/blob/master/README.md#set-own-plugin-implementation-for-encoding-and-decoding)))
 * configuration a function that return the aes secret key to use for encryption/decryption
 * encoding of complete query and body for requests
@@ -186,6 +185,26 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
                 }
     };
 }])
+```
+
+#### connfigure the cipher algorithm to use
+
+```js
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.DES)
+})
+```
+
+- availabe ciphers all that are supported by [CryptoJS](https://code.google.com/p/crypto-js/#Ciphers)
+```js
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.DES)
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.TripleDES)
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.Rabbit)
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.RC4)
+    cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.RC4Drop)
+})
 ```
 
 #### Complete encoding of query parameter
