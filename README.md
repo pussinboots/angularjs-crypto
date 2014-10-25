@@ -5,6 +5,7 @@
 [![Dependencies](https://david-dm.org/pussinboots/angularjs-crypto.png)](https://david-dm.org/pussinboots/angularjs-crypto)
 [![Heroku](http://heroku-badge.heroku.com/?app=angularjs-crypto)](https://angularjs-crypto.herokuapp.com/)
 [![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/angularjs-crypto/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/angularjs-crypto/builds)
+[![Codio](https://d2g7ua7d94r3fl.cloudfront.net/assets/images/8aa866ae.codio_logo.png)](https://codio.com/pussinboots/angularjs-crypto)
 
 [![Gitter chat](https://badges.gitter.im/pussinboots/angularjs-crypto.png)](https://gitter.im/pussinboots/angularjs-crypto)
 
