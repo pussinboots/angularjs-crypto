@@ -1,1 +1,42 @@
 <!-- implements example app-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="de" ng-app="demoApp-e2e">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="fragment" content="#"/>
+    <title>Simple Demo App for angularjs-crypto</title>
+
+    <!-- bower:css -->
+    <!-- endbower -->
+
+    <!-- bower:js -->
+    <script src="../components/angular/angular.js"></script>
+    <script src="../components/angular-cookies/angular-cookies.js"></script>
+    <script src="../components/angular-resource/angular-resource.js"></script>
+    <script src="../components/angular-route/angular-route.js"></script>
+    <!-- endbower -->	    
+
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-mocks.js"></script>
+ 
+    <!-- contains the angularjs-crypt http interceptor named cryptoHttpInterceptor-->
+    <script type='text/javascript' src="../js/lib/plugins/CryptoJSCipher.js"></script>
+    <script type='text/javascript' src="../js/lib/angularjs-crypto.js"></script>
+    <!-- cryptojs files -->
+    <script type='text/javascript' src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/rabbit.js"></script>
+    <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/tripledes.js"></script>
+    <script type='text/javascript' src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
+
+    <!-- demoApp js files -->
+    <script type='text/javascript' src="js/des/app.js"></script>
+    <script type='text/javascript' src="js/controllers.js"></script>
+    <script type='text/javascript' src="js/services.js"></script>
+
+    <!-- mock backend -->
+    <script type='text/javascript' src="../test/e2e/plugins/mockAppDes.js"></script>
+
+</head>
+<body>
+    <div ng-view></div>
+</body>
+</html>
