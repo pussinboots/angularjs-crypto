@@ -3,4 +3,5 @@ repo:
 folder: /vagrant/project/angularjs-crypto
 deps: 
     - sublime3
+    - firefox
     - nodejs
