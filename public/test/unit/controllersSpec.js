@@ -168,15 +168,14 @@ describe('Controllers tests', function () {
         }));
 
         it('encode query param by field name pattern', function () {
-            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {items: [
-                		{query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="}
-            		], count: 1
+            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
+                		query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="
             	}, 
 		{'Content-Type': 'application/json;charset=utf-8'}
 	    );
 	    rootScope.$digest();
-            $httpBackend.flush();
-            expect(scope.data.query).toEqualData('name_enc=XJWoMnnOlSF3tFoU4jn4gg==');
+        $httpBackend.flush();
+        expect(scope.query).toEqualData('name_enc=XJWoMnnOlSF3tFoU4jn4gg==');
         });
     });
 
@@ -220,8 +219,8 @@ describe('Controllers tests', function () {
 		{'Content-Type': 'application/json;charset=utf-8'}
 	    );
 	    rootScope.$digest();
-            $httpBackend.flush();
-            expect(scope.data.query).toEqualData('WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A==');
+        $httpBackend.flush();
+        expect(scope.query).toEqualData('WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A==');
         });
     });
 
