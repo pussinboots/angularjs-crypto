@@ -9,7 +9,7 @@ function EncodeQueryGetController($scope, Data) {
     $scope.plainQueryParam={name_enc:'COMMERZBANK AG'}
     $scope.data = Data.query({name_enc:'COMMERZBANK AG'}, function(response) {
 	//store sended query param in scope
-	   $scope.queryParam=$scope.data.$queryParams
+	   $scope.query=response.query;
     });
 }
 
@@ -17,7 +17,7 @@ function EncodeFullQueryGetController($scope, Data) {
     $scope.plainQueryParam={name:'COMMERZBANK AG', value:12345, id:12345}
     $scope.data = Data.queryFullCrypt({name:'COMMERZBANK AG', value:12345, id:12345}, function(response) {
 	//store sended query param in scope
-    	$scope.queryParam=$scope.data.$queryParams
+    	$scope.query=response.query;
     });
 }
 

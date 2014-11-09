@@ -169,14 +169,14 @@ describe('Controllers tests', function () {
 
         it('encode query param by field name pattern', function () {
             $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {items: [
-                		{name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
+                		{query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="}
             		], count: 1
             	}, 
 		{'Content-Type': 'application/json;charset=utf-8'}
 	    );
 	    rootScope.$digest();
             $httpBackend.flush();
-            expect(scope.data.$queryParams).toEqualData({name_enc: 'XJWoMnnOlSF3tFoU4jn4gg=='});
+            expect(scope.data.query).toEqualData('name_enc=XJWoMnnOlSF3tFoU4jn4gg==');
         });
     });
 
@@ -214,15 +214,14 @@ describe('Controllers tests', function () {
         }));
 
         it('encode complete get request query params', function () {
-            $httpBackend.expectGET('/assets/config?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {items: [
-                		{name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
-            		], count: 1
-            	}, 
+            $httpBackend.expectGET('/assets/config?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
+                		query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="
+                    },
 		{'Content-Type': 'application/json;charset=utf-8'}
 	    );
 	    rootScope.$digest();
             $httpBackend.flush();
-            expect(scope.data.$queryParams).toEqualData({query : 'WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A==' } );
+            expect(scope.data.query).toEqualData('WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A==');
         });
     });
 
