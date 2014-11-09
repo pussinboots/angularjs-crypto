@@ -13,7 +13,7 @@ deploy:
 after_failure:
 - wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots unitcover ./target/test-reports/ "test-results.xml test-results-e2e.xml"
 before_deploy:
-- scripts/e2etest.sh
+- scripts/e2etest.sh e2esaucelabs
 - wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots unitcover ./target/test-reports/ "test-results.xml test-results-e2e.xml"
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:

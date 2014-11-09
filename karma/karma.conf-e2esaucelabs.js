@@ -14,9 +14,6 @@ module.exports = function (config) {
     	junitReporter: {
 			outputFile: 'test-results-e2e.xml',
 			suite: 'End2End test'
-		},
-        proxies: {
-            '/': 'http://localhost:9000/'
-        }
+		}
     });
 }
