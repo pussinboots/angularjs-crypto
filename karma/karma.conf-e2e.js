@@ -6,6 +6,7 @@ module.exports = function (config) {
     config.files.push('node_modules/karma-ng-scenario/lib/adapter.js');
     config.files.push('public/test/e2e/*.coffee');
     config.set({
+        reporters: ['progress', 'dots', 'junit'],
     	junitReporter: {
 			outputFile: 'test-results-e2e.xml',
 			suite: 'End2End test'

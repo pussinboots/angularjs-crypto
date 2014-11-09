@@ -34,6 +34,8 @@ module.exports = function (config) {
        
     config.set({
 
+    	reporters: ['progress', 'dots', 'junit'],
+
 	sauceLabs: {
 	      testName: 'Karma and Sauce Labs demo',
 	      recordScreenshots: false
