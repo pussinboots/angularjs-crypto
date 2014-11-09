@@ -11,10 +11,10 @@ deploy:
   api_key:
     secure: nQ9G863kXSWi+AC/Xreiz1/bGTikFfU+0MNQY6NkvMh3A7vJjQP52cpOcVsSnJi8oekTYrbJDj/aswSSXSoJI5ftvxjBU5GwGyB6gjJQRtMGMn3IBgc9X19vW4NGqX5Y2aQRoJOfHy2A1sKrkycfEdy/x8Z3jhoPHG1+Pi0lLNQ=
 after_failure:
-- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots unitcover ./target/test-reports/ "test-results.xml test-results-e2e.xml"
+- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots angularjs-crypto "test-results.xml test-results-e2e.xml"
 before_deploy:
-- scripts/e2etest.sh e2esaucelabs
-- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots unitcover ./target/test-reports/ "test-results.xml test-results-e2e.xml"
+- scripts/e2etest.sh e2e
+- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots angularjs-crypto "test-results.xml test-results-e2e.xml"
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
   webhooks:

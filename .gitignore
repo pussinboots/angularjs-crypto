@@ -3,8 +3,11 @@
 coverage
 node_modules
 test-results.xml
+test-results-e2e.xml
+.dpl
 logs
 project/target
 project/project
 target
 public/components
+
