@@ -47,7 +47,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
         // commented reports cause crash
-        reporters: ['progress', 'dots', 'junit'/*, 'coverage', 'coveralls', 'threshold'*/],
+        reporters: ['progress', 'dots', 'junit', 'coverage', 'coveralls', 'threshold'],
 
 	thresholdReporter: {
 	      statements: 90,
