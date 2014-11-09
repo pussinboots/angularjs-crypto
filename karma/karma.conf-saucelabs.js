@@ -33,9 +33,6 @@ module.exports = function (config) {
     sharedConfig(config);
        
     config.set({
-
-    	reporters: ['progress', 'dots', 'junit'],
-
 	sauceLabs: {
 	      testName: 'Karma and Sauce Labs demo',
 	      recordScreenshots: false
