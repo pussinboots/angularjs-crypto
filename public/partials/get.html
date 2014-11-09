@@ -1,5 +1,5 @@
 <h3>Received from Server</h3>
-<div ng-repeat="item in received.items">
+<div class="encrypted" ng-repeat="item in received.items">
 	<div id="name">{{item.name_enc}}</div>
 	<div id="value">{{item.value_enc}}</div>
 	<div id="plain">{{item.plain}}</div>
@@ -10,7 +10,7 @@
 
 <h3>Client Data</h3>
 
-<div ng-repeat="item in data.items">
+<div class="decrypted" ng-repeat="item in data.items">
 	<div id="name">{{item.name_enc}}</div>
 	<div id="value">{{item.value_enc}}</div>
 	<div id="plain">{{item.plain}}</div>

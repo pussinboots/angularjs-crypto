@@ -13,6 +13,7 @@ deploy:
 after_failure:
 - ./upload_junitreport.sh
 before_deploy:
+- scripts/e2etest.sh
 - ./upload_junitreport.sh
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:

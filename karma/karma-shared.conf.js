@@ -15,7 +15,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             // bower:js
-            'public/components/angular/angular.js',
+            /*'public/components/angular/angular.js',
             'public/components/angular-cookies/angular-cookies.js',
             'public/components/angular-resource/angular-resource.js',
             'public/components/angular-route/angular-route.js',
@@ -25,8 +25,7 @@ module.exports = function (config) {
     	    'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
             'public/js/*.js',
             'public/js/lib/*.js',
-            'public/js/lib/plugins/*.js',
-            'public/test/**/*.js'
+            'public/js/lib/plugins/*.js',*/
         ],
 
 
@@ -39,7 +38,10 @@ module.exports = function (config) {
             'public/test/lib/angular/jstd-scenario-adapter.js'
         ],
 
-        preprocessors: { 'public/js/*.js': ['coverage'],'public/js/lib/*.js': ['coverage'], 'public/test/unit/*.js': ['coverage'] },
+        preprocessors: {    'public/js/*.js': ['coverage'],
+                            'public/js/lib/*.js': ['coverage'], 
+                            'public/test/unit/*.js': ['coverage'],
+                            'public/test/e2e/*.coffee': ['coffee'], },
 
 
         // test results reporter to use
@@ -105,6 +107,7 @@ module.exports = function (config) {
             '/test/lib/angular/': 'http://localhost:8888/asset/test/lib/angular/'
         },
 
-        urlRoot: '/__karma/'
+        urlRoot: '/__karma/',
+        autoWatch : true
     });
 };

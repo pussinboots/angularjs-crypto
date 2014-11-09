@@ -2,7 +2,7 @@
 // Generated on Wed Aug 14 2013 22:33:43 GMT+0200 (CEST)
 // Karma configuration
 // Generated on Wed Aug 14 2013 22:33:43 GMT+0200 (CEST)
-var sharedConfig = require('./karma-shared.conf');
+var sharedConfig = require('./karma.conf-unit.js');
 
 module.exports = function (config) {
     var customLaunchers= {
