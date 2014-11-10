@@ -72,10 +72,10 @@ deps: defined the dependencies to be installed during vagrant provision.
 ##Install (manual)
 
 * download [js file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
-* download [js plugin file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/CryptoJSPlugin.js)
+* download [js plugin file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/plugins/CryptoJSCipher.js)
 * added javascript file to your app html file
 ```html
-<script type='text/javascript' src="CryptoJSPlugin.js"></script>
+<script type='text/javascript' src="CryptoJSCipher.js"></script>
 <script type='text/javascript' src="angularjs-crypto.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
