@@ -22,6 +22,10 @@ Dependencies
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
+##Bower Versions 
+
+- 0.0.3 : support all ciphers that are supported by CryptoJS
+
 ##Development
 
 To simplify the checkout and the setup of a full development environment with all needed dependencies the  [vagrant-git](https://github.com/pussinboots/vagrant-git) project is used. 
@@ -63,7 +67,7 @@ deps: defined the dependencies to be installed during vagrant provision.
 * bower install angularjs-crypto
 * js file is under the [bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js
 ```html
-<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/CryptoJSPlugin.js"></script>
+<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/CryptoJSCipher.js"></script>
 <script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
