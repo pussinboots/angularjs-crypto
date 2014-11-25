@@ -1,6 +1,6 @@
 {
   "name": "angularjs-crypto",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/pussinboots/angularjs-crypto",
   "authors": [
     "pussinboots <pussinboots666@googlemail.com>"
@@ -16,7 +16,7 @@
   ],
   "main": [
     "public/js/lib/angularjs-crypto.js",
-    "public/js/lib/plugins/CryptoJSDESPlugin.js"
+    "public/js/lib/plugins/CryptoJSCipher.js"
   ],
   "dependencies": {
     "angular": "1.2.16",
