@@ -2,7 +2,9 @@
 
 function DecodeGetController($scope, Data) {
     $scope.received = Data.queryNoCrypt();
-    $scope.data = Data.query();
+    Data.query({}, function(response){
+    	$scope.data=response;
+    });
 }
 
 function EncodeQueryGetController($scope, Data) {
