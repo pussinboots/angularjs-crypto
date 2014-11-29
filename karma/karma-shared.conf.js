@@ -15,14 +15,14 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             // bower:js
-            '/public/components/jquery/dist/jquery.js',
-            '/public/components/angular/angular.js',
-            '/public/components/angular-cookies/angular-cookies.js',
-            '/public/components/angular-resource/angular-resource.js',
-            '/public/components/angular-route/angular-route.js',
-            '/public/components/bootstrap/dist/js/bootstrap.js',
-            '/public/components/highlightjs/highlight.pack.js',
-            '/public/components/angular-highlightjs/angular-highlightjs.js',
+            'public/components/jquery/dist/jquery.js',
+            'public/components/angular/angular.js',
+            'public/components/angular-cookies/angular-cookies.js',
+            'public/components/angular-resource/angular-resource.js',
+            'public/components/angular-route/angular-route.js',
+            'public/components/bootstrap/dist/js/bootstrap.js',
+            'public/components/highlightjs/highlight.pack.js',
+            'public/components/angular-highlightjs/angular-highlightjs.js',
             // endbower
 	        'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-mocks.js',
             'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
