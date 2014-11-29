@@ -1,9 +1,13 @@
 'use strict';
 
 function DecodeGetController($scope, Data) {
-    $scope.received = Data.queryNoCrypt();
+    Data.queryNoCrypt({}, function(response) {
+        $scope.received=response;
+        $scope.receivedstr=JSON.stringify($scope.received, null, 4);
+    });
     Data.query({}, function(response){
     	$scope.data=response;
+        $scope.datastr=JSON.stringify($scope.data, null, 4);
     });
 }
 
