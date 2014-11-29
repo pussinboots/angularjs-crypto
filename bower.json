@@ -22,6 +22,7 @@
     "angular": "1.2.16",
     "angular-cookies": "1.2.16",
     "angular-resource": "1.2.16",
-    "angular-route": "1.2.16"
+    "angular-route": "1.2.16",
+    "bootstrap": "~3.3.1"
   }
 }
