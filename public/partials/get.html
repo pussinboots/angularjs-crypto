@@ -1,7 +1,7 @@
 Demonstrate a simple http get scenario of partial encrypted json data. The server send a json object that contains
 some encrypted field data. The encrypted field names ends with _enc that tells the angularjs-crypto library to decode it automaticly. 
 
-<h3>Received from Server<3>
+<h3>Received from Server</h3>
 <div class="encrypted" ng-repeat="item in received.items">
 	<div id="name">{{item.name_enc}}</div>
 	<div id="value">{{item.value_enc}}</div>
