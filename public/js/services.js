@@ -9,9 +9,9 @@ angular.module('services', ['ngResource'], function ($provide) {
             query: {url:'/data/get/aes', method: 'GET', isArray: false, crypt: true},
             queryFullCrypt: {method: 'GET', isArray: false, fullcryptquery:true},
             queryNoCrypt: {method: 'GET'},
-            save: {method: 'POST', crypt: true},
-            saveNoCrypt: {method: 'POST'},
-            saveFullCrypt: {method: 'POST',  fullcryptbody:true}
+            save: {url:'/data', method: 'POST', crypt: true},
+            saveNoCrypt: {url:'/data', method: 'POST'},
+            saveFullCrypt: {url:'/data', method: 'POST',  fullcryptbody:true}
         });
     });
 
