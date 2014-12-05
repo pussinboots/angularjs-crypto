@@ -45,12 +45,12 @@ describe('Controllers tests', function () {
         }));
 
         it('decode simple json by field name that ends with _enc', function () {
-            $httpBackend.expectGET('/data/get/aes').respond(200, {items: [
+            $httpBackend.expectGET('/assets/config').respond(200, {items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
             }, {'Content-Type': 'application/json;charset=utf-8'});
-            $httpBackend.expectGET('/assets/config').respond(200, {items: [
+            $httpBackend.expectGET('/data/get/aes').respond(200, {items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
@@ -68,7 +68,7 @@ describe('Controllers tests', function () {
         });
 
         it('decode complex json by field name that ends with _enc', function () {
-            $httpBackend.expectGET('/data/get/aes').respond(200,
+            $httpBackend.expectGET('/assets/config').respond(200,
                 {    items: [
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
@@ -77,7 +77,7 @@ describe('Controllers tests', function () {
                     count: 3
                 }, {'Content-Type': 'application/json;charset=utf-8'}
             );
-            $httpBackend.expectGET('/assets/config').respond(200,
+            $httpBackend.expectGET('/data/get/aes').respond(200,
                 {    items: [
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
