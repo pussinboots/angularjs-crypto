@@ -6,7 +6,7 @@ angular.module('services', ['ngResource'], function ($provide) {
 
     $provide.factory('Data', function ($resource) {
         return $resource('/assets/config', {}, {
-            query: {method: 'GET', isArray: false, crypt: true},
+            query: {url:'/data/get/aes', method: 'GET', isArray: false, crypt: true},
             queryFullCrypt: {method: 'GET', isArray: false, fullcryptquery:true},
             queryNoCrypt: {method: 'GET'},
             save: {method: 'POST', crypt: true},
