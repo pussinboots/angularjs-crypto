@@ -45,12 +45,12 @@ describe('Controllers tests', function () {
         }));
 
         it('decode simple json by field name that ends with _enc', function () {
-            $httpBackend.expectGET('/assets/config').respond(200, {items: [
+            $httpBackend.expectGET('/data/get/aes').respond(200, {items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
             }, {'Content-Type': 'application/json;charset=utf-8'});
-            $httpBackend.expectGET('/assets/config').respond(200, {items: [
+            $httpBackend.expectGET('/data/get/aes').respond(200, {items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
@@ -68,7 +68,7 @@ describe('Controllers tests', function () {
         });
 
         it('decode complex json by field name that ends with _enc', function () {
-            $httpBackend.expectGET('/assets/config').respond(200,
+            $httpBackend.expectGET('/data/get/aes').respond(200,
                 {    items: [
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
@@ -77,7 +77,7 @@ describe('Controllers tests', function () {
                     count: 3
                 }, {'Content-Type': 'application/json;charset=utf-8'}
             );
-            $httpBackend.expectGET('/assets/config').respond(200,
+            $httpBackend.expectGET('/data/get/aes').respond(200,
                 {    items: [
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
@@ -141,7 +141,7 @@ describe('Controllers tests', function () {
 	it('reject request with empty data and set content type to application/json', function () {
 	    // post request is requested because of empty request data (body)
     	    /*$httpBackend.whenPOST('/assets/empty').respond(200, null,{'content-type': 'application/json;charset=utf-8'});*/
-	    $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+	    $httpBackend.whenGET('/data/get/aes').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.data).toEqualData({});
@@ -149,7 +149,7 @@ describe('Controllers tests', function () {
         });
 
         it('reject promise by empty response which should be decrypted by service configuration', function () {
-            $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+            $httpBackend.whenGET('/data/get/aes').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.data).toEqualData({});
@@ -168,7 +168,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode query param by field name pattern', function () {
-            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
+            $httpBackend.expectGET('/data/get/aes?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
                 		query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="
             	}, 
 		{'Content-Type': 'application/json;charset=utf-8'}
@@ -213,10 +213,10 @@ describe('Controllers tests', function () {
         }));
 
         it('encode complete get request query params', function () {
-            $httpBackend.expectGET('/assets/config?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
+            $httpBackend.expectGET('/data/get/aes?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
                 		query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="
                     },
-		{'Content-Type': 'application/json;charset=utf-8'}
+		{'Content-Type': 'application/jso/data/get/aesn;charset=utf-8'}
 	    );
 	    rootScope.$digest();
         $httpBackend.flush();
