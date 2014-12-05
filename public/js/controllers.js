@@ -56,11 +56,14 @@ function EncodePostController($scope, Data) {
         ],
         count: 1
     };
+    $scope.datastr=JSON.stringify($scope.data, null, 4);
     $scope.send = {
         items: [
         {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
         ],
         count: 1
     };
-    Data.save($scope.send);
+    Data.save($scope.send , function(response) {
+    	$scope.sendstr=JSON.stringify($scope.send, null, 4);
+    });
 }
