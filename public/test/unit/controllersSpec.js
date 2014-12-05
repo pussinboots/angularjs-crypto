@@ -114,7 +114,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode simple json post request all fields that end with _enc', function () {
-            $httpBackend.expectPOST('/assets/config', {    items: [
+            $httpBackend.expectPOST('/data', {    items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
@@ -190,7 +190,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode post request body', function () {
-            $httpBackend.expectPOST('/assets/config','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200);
+            $httpBackend.expectPOST('/data','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200);
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.send).toEqualData({
