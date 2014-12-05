@@ -50,7 +50,7 @@ describe('Controllers tests', function () {
             ],
                 count: 1
             }, {'Content-Type': 'application/json;charset=utf-8'});
-            $httpBackend.expectGET('/data/get/aes').respond(200, {items: [
+            $httpBackend.expectGET('/assets/config').respond(200, {items: [
                 {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"}
             ],
                 count: 1
@@ -77,7 +77,7 @@ describe('Controllers tests', function () {
                     count: 3
                 }, {'Content-Type': 'application/json;charset=utf-8'}
             );
-            $httpBackend.expectGET('/data/get/aes').respond(200,
+            $httpBackend.expectGET('/assets/config').respond(200,
                 {    items: [
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
                     {name_enc: "XJWoMnnOlSF3tFoU4jn4gg==", value_enc: "l0gZvr5oiHds8nQpqe0Kqg==", plain: "Hallo"},
@@ -141,7 +141,7 @@ describe('Controllers tests', function () {
 	it('reject request with empty data and set content type to application/json', function () {
 	    // post request is requested because of empty request data (body)
     	    /*$httpBackend.whenPOST('/assets/empty').respond(200, null,{'content-type': 'application/json;charset=utf-8'});*/
-	    $httpBackend.whenGET('/data/get/aes').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+	    $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.data).toEqualData({});
@@ -149,7 +149,7 @@ describe('Controllers tests', function () {
         });
 
         it('reject promise by empty response which should be decrypted by service configuration', function () {
-            $httpBackend.whenGET('/data/get/aes').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
+            $httpBackend.whenGET('/assets/config').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.data).toEqualData({});
