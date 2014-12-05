@@ -10,6 +10,7 @@ myAppDev.run(["$httpBackend", function ($httpBackend) {
     $httpBackend.whenPOST('/assets/config', givenProfile()).respond(200);
     $httpBackend.whenPOST('/assets/empty').respond(null, {'content-type': 'application/json;charset=utf-8'});
     $httpBackend.whenGET(/partials\/.*/).passThrough();
+    $httpBackend.whenGET(/data\/.*/).passThrough();
 }]);
 
 //given
