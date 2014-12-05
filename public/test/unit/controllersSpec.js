@@ -213,7 +213,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode complete get request query params', function () {
-            $httpBackend.expectGET('/data/get/aes?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
+            $httpBackend.expectGET('/assets/config?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
                 		query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="
                     },
 		{'Content-Type': 'application/jso/data/get/aesn;charset=utf-8'}
