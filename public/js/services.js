@@ -11,7 +11,7 @@ angular.module('services', ['ngResource'], function ($provide) {
             queryNoCrypt: {method: 'GET'},
             save: {url:'/data', method: 'POST', crypt: true},
             saveNoCrypt: {url:'/data', method: 'POST'},
-            saveFullCrypt: {url:'/data', method: 'POST',  isArray: false, fullcryptbody:true}
+            saveFullCrypt: {url:'/data', method: 'POST',  isArray: true, fullcryptbody:true}
         });
     });
 
