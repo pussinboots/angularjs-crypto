@@ -34,13 +34,14 @@ function EncodeBodyPostController($scope, Data) {
         ],
         count: 1
     };
-    $scope.send = Data.saveFullCrypt({
+    Data.saveFullCrypt({
         items: [
         {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
         ],
         count: 1
     }, function(response){
         console.log('respone ' + response);
+        $scope.send = response[0];
     });
 }
 
