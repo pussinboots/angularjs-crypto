@@ -13,12 +13,8 @@ angular.module('services', ['ngResource'], function ($provide) {
             saveNoCrypt: {url:'/data', method: 'POST'},
             saveFullCrypt: {url:'/data', method: 'POST',  isArray: true, fullcryptbody:true,
                 transformResponse: function (data, headers) {
-                var tranformed = [];
-                [].forEach.call(eval(data), function (d) {
-                    tranformed.push({ name: d });
-                });
-                return tranformed;
-              }
+                    return { body: data };
+                }
             }
         });
     });
