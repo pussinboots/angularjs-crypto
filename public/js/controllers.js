@@ -13,9 +13,11 @@ function DecodeGetController($scope, Data) {
 
 function EncodeQueryGetController($scope, Data) {
     $scope.plainQueryParam={name_enc:'COMMERZBANK AG'}
-    $scope.data = Data.query({name_enc:'COMMERZBANK AG'}, function(response) {
+    Data.query({name_enc:'COMMERZBANK AG'}, function(response) {
 	//store sended query param in scope
 	   $scope.query=response.query;
+	   $scope.data = response;
+	   $scope.datastr=JSON.stringify($scope.data, null, 4);
     });
 }
 
