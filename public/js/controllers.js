@@ -5,7 +5,7 @@ function DecodeGetController($scope, Data) {
         $scope.received=response;
         $scope.receivedstr=JSON.stringify($scope.received, null, 4);
     });
-    Data.query({}, function(response){
+    Data.get({}, function(response){
     	$scope.data=response;
         $scope.datastr=JSON.stringify($scope.data, null, 4);
     });
