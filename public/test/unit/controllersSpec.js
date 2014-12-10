@@ -168,7 +168,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode query param by field name pattern', function () {
-            $httpBackend.expectGET('/data/get/aes?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
+            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
                 		query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="
             	}, 
 		{'Content-Type': 'application/json;charset=utf-8'}
