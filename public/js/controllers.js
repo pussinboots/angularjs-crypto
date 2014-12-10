@@ -44,7 +44,7 @@ function EncodeBodyPostController($scope, Data) {
 
 function EmptyController($scope, Empty, Data) {
     $scope.received = Empty.post();
-    $scope.data = Data.query()
+    $scope.data = Data.get();
 }
 
 function EncodePostController($scope, Data) {
