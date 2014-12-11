@@ -11,6 +11,12 @@ connect().
         res.end(JSON.stringify(obj));    
         next();
     }).
+    use('/data/query/aes', function getaes(req, res, next) {
+        var obj = {query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="}
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(obj));    
+        next();
+    }).
     use('/data/get/des', function getaes(req, res, next) {
         var obj = { items: [ {name_enc: "AFx0ylylXKZG3Fp1veuO+g==", value_enc: "kDlxDGGIm2w=", plain: "Hallo"},
                             {name_enc: "AFx0ylylXKZG3Fp1veuO+g==", value_enc: "kDlxDGGIm2w=", plain: "Hallo"},
