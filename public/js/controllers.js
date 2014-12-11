@@ -42,8 +42,8 @@ function EncodeBodyPostController($scope, Data) {
     });
 }
 
-function EmptyController($scope, Empty, Data) {
-    $scope.received = Empty.post();
+function EmptyController($scope, Data) {
+    $scope.received = Data.save();
     $scope.data = Data.get();
 }
 
