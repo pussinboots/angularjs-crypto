@@ -1,5 +1,6 @@
 var connect = require('connect');
 var serveStatic = require('serve-static');
+var url = require('url');
 var port = Number(process.env.PORT || 9000);
 connect().
     use('/data/get/aes', function getaes(req, res, next) {
@@ -12,7 +13,8 @@ connect().
         next();
     }).
     use('/data/query/aes', function getaes(req, res, next) {
-        var obj = {query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="}
+        var query = url.parse(req.url, true).query;
+        var obj = {query: query};
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify(obj));    
         next();
