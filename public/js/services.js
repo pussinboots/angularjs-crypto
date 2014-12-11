@@ -7,8 +7,8 @@ angular.module('services', ['ngResource'], function ($provide) {
     $provide.factory('Data', function ($resource) {
         return $resource('/assets/config', {}, {
             get: {url:'/data/get/aes', method: 'GET', isArray: false, crypt: true},
-            query: {url:'/data/query/aes', method: 'GET', isArray: false, crypt: true},
-            queryFullCrypt: {url:'/data/fullquery/aes', method: 'GET', isArray: false, fullcryptquery:true},
+            query: {url:'/data/query', method: 'GET', isArray: false, crypt: true},
+            queryFullCrypt: {url:'/data/query', method: 'GET', isArray: false, fullcryptquery:true},
             queryNoCrypt: {method: 'GET'},
             save: {url:'/data', method: 'POST', crypt: true},
             saveNoCrypt: {url:'/data', method: 'POST'},
