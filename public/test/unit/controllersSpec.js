@@ -168,7 +168,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode query param by field name pattern', function () {
-            $httpBackend.expectGET('/assets/config?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
+            $httpBackend.expectGET('/assets/query/aes?name_enc=XJWoMnnOlSF3tFoU4jn4gg%3D%3D').respond(200, {
                 		query: "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="
             	}, 
 		{'Content-Type': 'application/json;charset=utf-8'}
@@ -213,7 +213,7 @@ describe('Controllers tests', function () {
         }));
 
         it('encode complete get request query params', function () {
-            $httpBackend.expectGET('/assets/config?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
+            $httpBackend.expectGET('/assets/fullquery/aes?query=WZM2hwPXWx4%2B7SbaJpUPrh6KZl7c4lqZ%2F67En5tJy8DGTjW%2BmxDV0g8t2UtDklW4f1Ec%2Fmr6hPf2K6V%2BoE%2F21A%3D%3D').respond(200, {
                 		query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="
                     },
 		{'Content-Type': 'application/json;charset=utf-8'}
