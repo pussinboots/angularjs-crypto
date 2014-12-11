@@ -17,6 +17,12 @@ connect().
         res.end(JSON.stringify(obj));    
         next();
     }).
+    use('/data/fullquery/aes', function getaes(req, res, next) {
+        var obj = {query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="}
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(obj));    
+        next();
+    }).
     use('/data/get/des', function getaes(req, res, next) {
         var obj = { items: [ {name_enc: "AFx0ylylXKZG3Fp1veuO+g==", value_enc: "kDlxDGGIm2w=", plain: "Hallo"},
                             {name_enc: "AFx0ylylXKZG3Fp1veuO+g==", value_enc: "kDlxDGGIm2w=", plain: "Hallo"},
