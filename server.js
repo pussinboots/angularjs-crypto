@@ -12,15 +12,9 @@ connect().
         res.end(JSON.stringify(obj));    
         next();
     }).
-    use('/data/query/aes', function getaes(req, res, next) {
+    use('/data/query', function getaes(req, res, next) {
         var query = url.parse(req.url, true).query;
         var obj = {query: query};
-        res.writeHead(200, {"Content-Type": "application/json"});
-        res.end(JSON.stringify(obj));    
-        next();
-    }).
-    use('/data/fullquery/aes', function getaes(req, res, next) {
-        var obj = {query: "WZM2hwPXWx4+7SbaJpUPrh6KZl7c4lqZ/67En5tJy8DGTjW+mxDV0g8t2UtDklW4f1Ec/mr6hPf2K6V+oE/21A=="}
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify(obj));    
         next();
