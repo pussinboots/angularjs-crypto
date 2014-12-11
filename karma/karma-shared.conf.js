@@ -35,11 +35,7 @@ module.exports = function (config) {
 
         // list of files to exclude
         exclude: [
-            'public/test/lib/jasmine/*',
-            'public/test/lib/jasmine-jstd-adapter/*',
             'public/test/e2e/*.js',
-            'public/test/lib/angular/angular-scenario.js',
-            'public/test/lib/angular/jstd-scenario-adapter.js'
         ],
 
         preprocessors: {    'public/js/*.js': ['coverage'],
