@@ -35,7 +35,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 return request;
             },
             response: function (response) {
-                var shouldCrypt = (response.config || false).crypt;
+                var shouldCrypt = (response.config || false).crypt  && (response.config || false).decrypt;
                 if (missingCryptoJs(shouldCrypt, cfg, $q)) {
                     return q.reject('CryptoJS missing');
                 }

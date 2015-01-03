@@ -10,7 +10,7 @@ describe "query example", ->
 		expect(browser().location().url()).toBe "/query"
 
 	it "check plain query", ->
-		expect(binding("query")).toEqual "name_enc=XJWoMnnOlSF3tFoU4jn4gg=="
+		expect(binding("query")).toEqual "{\"name_enc\":\"XJWoMnnOlSF3tFoU4jn4gg==\"}"
 
 	it "check encrypted query", ->    				
 		expect(binding("plainQueryParam")).toEqual "{\"name_enc\":\"COMMERZBANK AG\"}"
