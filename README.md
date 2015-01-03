@@ -25,6 +25,7 @@ Dependencies
 ##Bower Versions 
 
 - 0.0.3 : support all ciphers that are supported by CryptoJS
+- 0.0.4 : support decryption of encoded reponse body
 
 ##Development
 
