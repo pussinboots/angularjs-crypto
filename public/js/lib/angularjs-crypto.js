@@ -16,7 +16,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 }
                 var data = request.data;
                 if (shouldCrypt === true) {
-                    if (checkHeaderJson(request.headers['Content-Type'])) {
+                    if (checkHeader(cfg, request.headers['Content-Type'])) {
                         console.log("intercept request " + angular.toJson(data));
                         if (!data) return $q.reject(request);
                         encrypt(data, cfg);
@@ -35,12 +35,12 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 return request;
             },
             response: function (response) {
-                var shouldCrypt = (response.config || false).crypt  && (response.config || false).decrypt;
+                var shouldCrypt = (response.config || false).crypt  && defaultVal(response.config.decrypt, true);
                 if (missingCryptoJs(shouldCrypt, cfg, $q)) {
                     return q.reject('CryptoJS missing');
                 }
                 if (shouldCrypt == true) {
-                    if (checkHeaderJson(response.headers()['content-type'])) {
+                    if (checkHeader(cfg, response.headers()['content-type'])) {
                         var data = response.data;
                         console.log("intercept response " + angular.toJson(data));
                         if (!data)
@@ -60,6 +60,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
     this.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
+    this.contentHeaderCheck = new ContentHeaderCheck('application/json')
     this.responseWithQueryParams = true;
 
     this.$get = function () {
@@ -71,6 +72,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
             },
             pattern: this.pattern,
             plugin: this.plugin,
+            contentHeaderCheck: this.contentHeaderCheck,
             responseWithQueryParams: this.responseWithQueryParams
         };
     };
@@ -92,9 +94,9 @@ function crypt(events, pattern, callback, base64Key) {
     }
 }
 
-function checkHeaderJson(header) {
-    if(!header) { return false; }
-    return(header.beginsWith("application/json"));
+function checkHeader(cfg, contentType) {
+    if(!contentType) { return false; }
+    return(cfg.contentHeaderCheck.check(contentType));
 }
 
 String.prototype.beginsWith = function (string) {
@@ -104,4 +106,12 @@ String.prototype.beginsWith = function (string) {
 String.prototype.endsWith = function (str) {
     var lastIndex = this.lastIndexOf(str);
     return (lastIndex != -1) && (lastIndex + str.length == this.length);
+};
+
+function defaultVal(val, defaultVal){
+    if(typeof val==='undefined'){
+        return defaultVal;
+    }else{
+        return val;
+    }
 };
