@@ -13,11 +13,13 @@ angular.module('services', ['ngResource'], function ($provide) {
             queryNoCrypt: {url:'/data/get/aes', method: 'GET'},
             save: {url:'/data', method: 'POST', crypt: true},
             saveNoCrypt: {url:'/data', method: 'POST'},
-            saveFullCrypt: {url:'/data', method: 'POST',  isArray: true, fullcryptbody:true,
+            saveEnCrypt: {url:'/data', method: 'POST',  isArray: true, fullcryptbody:true,
                 transformResponse: function (data, headers) {
                     return [{ body: data }];
+                    //return data;
                 }
-            }
+            },
+            saveDeCrypt: {url:'/data/decrypt', method: 'POST',  isArray: false, fullcryptbody:true, decryptbody:true}
         });
     });
 });

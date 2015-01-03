@@ -1,0 +1,15 @@
+<h3>Client Data</h3>
+<div class="plain" ng-repeat="item in data.items">
+<div id="name">{{item.name_enc}}</div>
+<div id="value">{{item.value_enc}}</div>
+<div id="plain">{{item.plain}}</div>
+
+<h3>Json</h3>
+<div id="plain" hljs source="datastr"></div>
+
+<h3>Response Received From Server</h3>
+
+<h3>Json</h3>
+<div id="plain" hljs source="receivedstr"></div>
+
+<div style="visibility: hidden">{{received}}</div>

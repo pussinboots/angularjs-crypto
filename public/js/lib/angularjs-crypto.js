@@ -47,6 +47,12 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                             return $q.reject(response);
                         decrypt(data, cfg);
                     }
+                }  else if ((response.config.decryptbody || false) &&
+                            checkHeader(cfg, response.headers()['content-type'])) {
+                    var data = response.data;
+                    if (!data) return $q.reject(request);
+                    response.data = JSON.parse(cfg.plugin.decode(data, cfg.key()));
+                    console.log("encode full body " + response.data);
                 }
                 return response;
             }
@@ -60,7 +66,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
     this.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
-    this.contentHeaderCheck = new ContentHeaderCheck('application/json')
+    this.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc'])
     this.responseWithQueryParams = true;
 
     this.$get = function () {

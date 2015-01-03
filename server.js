@@ -28,6 +28,10 @@ connect().
         res.end(JSON.stringify(obj));    
         next();
     }).
+    use('/data/decrypt', function echo(req, res, next) {
+        res.writeHead(200, {"Content-Type": "application/json_enc"});
+        req.pipe(res);
+    }).
     use('/data', function echo(req, res, next) {
         res.writeHead(200);
         req.pipe(res);

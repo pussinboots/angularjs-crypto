@@ -179,7 +179,7 @@ describe('Controllers tests', function () {
         });
     });
 
-    describe('encode/decode complete request/response body', function () {
+    describe('encode complete request body', function () {
         var scope, $httpBackend, rootScope;
 
         beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
@@ -193,12 +193,30 @@ describe('Controllers tests', function () {
             $httpBackend.expectPOST('/data','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200);
             rootScope.$digest();
             $httpBackend.flush();
-            /*expect(scope.send).toEqualData({
-		items: [
-		    {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
-		],
-		count: 1
-	    });*/
+        });
+    });
+
+
+    describe('decode complete response body', function () {
+        var scope, $httpBackend, rootScope;
+
+        beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
+            $httpBackend = _$httpBackend_;
+            rootScope = $rootScope;
+            scope = $rootScope.$new();
+            $controller(DecodeBodyPostController, {$scope: scope});
+        }));
+
+        it('decode post request body', function () {
+            $httpBackend.expectPOST('/data/decrypt','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200, '7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy', {'Content-Type': 'application/json'});
+            rootScope.$digest();
+            $httpBackend.flush();
+            expect(scope.received).toEqualData({
+        items: [
+            {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
+        ],
+        count: 1
+        });
         });
     });
 

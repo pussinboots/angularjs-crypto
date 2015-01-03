@@ -40,9 +40,24 @@ function EncodeBodyPostController($scope, Data) {
         count: 1
     };
     $scope.datastr=JSON.stringify($scope.data, null, 4);
-    Data.saveFullCrypt($scope.data, function(response){
+    Data.saveEnCrypt($scope.data, function(response){
         console.log('respone ' + response);
         $scope.send = response[0];
+    });
+}
+
+function DecodeBodyPostController($scope, Data) {
+    $scope.data = {
+        items: [
+        {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
+        ],
+        count: 1
+    };
+    $scope.datastr=JSON.stringify($scope.data, null, 4);
+    Data.saveDeCrypt($scope.data, function(response){
+        console.log('respone ' + response);
+        $scope.received = response;
+        $scope.receivedstr = JSON.stringify(response, null, 4);;
     });
 }
 
