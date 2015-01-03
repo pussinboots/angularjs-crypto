@@ -25,7 +25,8 @@ function EncodeFullQueryGetController($scope, Data) {
     $scope.plainQueryParam={name:'COMMERZBANK AG', value:12345, id:12345}
     Data.queryFullCrypt({name:'COMMERZBANK AG', value:12345, id:12345}, function(response) {
 	//store sended query param in scope
-    	$scope.query=response.query.query;
+        console.log('Debug 1 ' + response.query);
+    	$scope.query=response.query;
     	$scope.data = response;
 	$scope.datastr=JSON.stringify($scope.data, null, 4);
     });
