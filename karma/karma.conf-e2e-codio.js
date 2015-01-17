@@ -1,4 +1,4 @@
-var sharedConfig = require('./karma.conf-saucelabs.js');
+var sharedConfig = require('./karma.conf-unit.js');
 var hostname = require('os').hostname() + '.codio.io';
 var proxyHost = 'http://' + hostname + ':9000/';
 
