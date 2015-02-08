@@ -16,7 +16,7 @@ exports.config = {
       'browserName': 'chrome'
   },
   specs: [
-      '../public/test/e2e/query_protractor.coffee'
+      '../public/test/e2e/protractor/decodefullbody.coffee'
   ],
   framework: 'jasmine',
   baseUrl: 'http://localhost:9000/',
