@@ -33,6 +33,7 @@
     "karma-sauce-launcher": "^0.2.8",
     "karma-script-launcher": "~0.1",
     "karma-threshold-reporter": "~0.1.6",
-    "karma-coffee-preprocessor": "~0.2.1"
+    "karma-coffee-preprocessor": "~0.2.1",
+    "protractor": "~1.6.1"
   }
 }
