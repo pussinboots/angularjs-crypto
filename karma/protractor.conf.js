@@ -13,7 +13,7 @@ exports.config = {
       'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
   },*/
   capabilities: {
-      'browserName': 'firefox'
+      'browserName': 'chrome'
   },
   specs: [
       '../public/test/e2e/protractor/*.coffee'
