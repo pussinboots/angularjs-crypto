@@ -14,6 +14,7 @@ after_failure:
 - wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots angularjs-crypto "."
 before_deploy:
 - scripts/e2etest.sh e2e
+- scripts/e2etestprotractor.sh
 - wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots angularjs-crypto "."
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
