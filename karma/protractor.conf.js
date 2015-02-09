@@ -13,10 +13,10 @@ exports.config = {
       'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
   },*/
   capabilities: {
-      'browserName': 'chrome'
+      'browserName': 'firefox'
   },
   specs: [
-      '../public/test/e2e/protractor/decodefullbody.coffee'
+      '../public/test/e2e/protractor/*.coffee'
   ],
   framework: 'jasmine',
   baseUrl: 'http://localhost:9000/',
