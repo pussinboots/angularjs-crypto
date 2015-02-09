@@ -15,4 +15,4 @@ describe "decode fullbody example", ->
 		expect(element.all(By.repeater('item in data.items').column('item.value_enc')).get(0).getText()).toEqual "1504.75"
 
 	it "check encrypted body", ->
-		expect(element(By.binding("received")).evaluate("received")).toEqual  {items:[{name_enc:"COMMERZBANK AG" ,value_enc:"1504.75",plain:"Hallo"}],count:1}
+		expect(element(By.binding("received")).evaluate("received.items")).toEqual  [{name_enc:"COMMERZBANK AG" ,value_enc:"1504.75",plain:"Hallo"}]
