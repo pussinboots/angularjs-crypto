@@ -19,7 +19,7 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
-    "karma": "^0.12.16",
+    "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.4",
     "karma-cli": "0.0.4",
     "karma-coverage": "^0.2.4",
@@ -34,7 +34,7 @@
     "karma-script-launcher": "~0.1",
     "karma-threshold-reporter": "~0.1.6",
     "karma-coffee-preprocessor": "~0.2.1",
-    "jasmine-reporters": "^1.0.0",
+    "jasmine-reporters": "^2.0.4",
     "protractor": "~1.6.1"
   }
 }
