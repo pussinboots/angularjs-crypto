@@ -28,6 +28,7 @@ Dependencies
 
 - 0.0.3 : support all ciphers that are supported by CryptoJS
 - 0.0.4 : support decryption of encoded reponse body
+- 1.2.0 : use it for 1.14 + and 1.2.x version of angularjs
 
 ##Development
 
