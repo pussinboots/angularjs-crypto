@@ -19,7 +19,11 @@ angular.module('services', ['ngResource'], function ($provide) {
                     //return data;
                 }
             },
-            saveDeCrypt: {url:'/data/decrypt', method: 'POST',  isArray: false, fullcryptbody:true, decryptbody:true}
+            saveDeCrypt: {url:'/data/decrypt', method: 'POST',  isArray: false, fullcryptbody:true, decryptbody:true, 
+                transformResponse: function (data, headers) {
+                    return data;
+                }
+            }
         });
     });
 });

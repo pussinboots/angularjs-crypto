@@ -24,7 +24,7 @@ module.exports = function (config) {
             'public/components/highlightjs/highlight.pack.js',
             'public/components/angular-highlightjs/angular-highlightjs.js',
             // endbower
-	        'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-mocks.js',
+	        'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-mocks.js',
             'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js',
             'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
             'public/js/*.js',

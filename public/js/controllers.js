@@ -55,7 +55,7 @@ function DecodeBodyPostController($scope, Data) {
     };
     $scope.datastr=JSON.stringify($scope.data, null, 4);
     Data.saveDeCrypt($scope.data, function(response){
-        console.log('respone ' + response);
+        console.log('respone ' + JSON.stringify(response));
         $scope.received = response;
         $scope.receivedstr = JSON.stringify(response, null, 4);;
     });

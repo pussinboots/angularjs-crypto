@@ -138,7 +138,8 @@ describe('Controllers tests', function () {
             scope = $rootScope.$new();
             $controller(EmptyController, {$scope: scope});
         }));
-	it('reject request with empty data and set content type to application/json', function () {
+
+	    it('reject request with empty data and set content type to application/json', function () {
 	    // post request is requested because of empty request data (body)
     	    /*$httpBackend.whenPOST('/assets/empty').respond(200, null,{'content-type': 'application/json;charset=utf-8'});*/
 	    $httpBackend.whenGET('/data/get/aes').respond(200, null,{'content-type': 'application/json;charset=utf-8'});
@@ -208,15 +209,15 @@ describe('Controllers tests', function () {
         }));
 
         it('decode post request body', function () {
-            $httpBackend.expectPOST('/data/decrypt','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200, '7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy', {'Content-Type': 'application/json'});
+            $httpBackend.expectPOST('/data/decrypt','7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy').respond(200, '7fF8WOaj2HNvqhnOgvCNWFlxbNFX3N2Fi13ueR/Fe5kT5/pZGp1oVUw+ZYIgv7ST/Ke4+F5/8JXQI87/mpHVlNF6UrYEHrqAnj0gewtcwQ20lf+Kc4aSaXwJN8XJuNYy', {'Content-Type': 'application/json_enc'});
             rootScope.$digest();
             $httpBackend.flush();
             expect(scope.received).toEqualData({
-        items: [
-            {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
-        ],
-        count: 1
-        });
+                items: [
+                    {name_enc: "COMMERZBANK AG", value_enc: "1504.75", plain: "Hallo"}
+                ],
+                count: 1
+            });
         });
     });
 
