@@ -9,7 +9,24 @@ describe('Controllers tests', function () {
                 return angular.equals(this.actual, expected);
             }
         });
+        //for jasmine 2.x but protracvter is using jasmine 1
+        /*jasmine.Expectation.addMatchers({
+            toEqualData: function(expected) {
+                return {
+                    compare: function (actual, expected) {
+                        var pass = angular.equals(actual, expected);
+                        var what = pass ? 'bad' : 'good';
+                        return {
+                            pass: pass,
+                            message: 'Expected data ' + JSON.stringify(actual, null, 4) + ' to be a '+ JSON.stringify(expected, null, 4) +' .'
+                        };
+                    }
+                };
+            }
+        })*/
     });
+
+
 
 
     //TODO is uncommented because check if cryptoHttpInterceptor is registered as http interceptor not working because it is added as anonoums function because that was the only way i know to inject the cfCryptoHttpInterceptor config provider

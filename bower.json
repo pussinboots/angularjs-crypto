@@ -1,6 +1,6 @@
 {
   "name": "angularjs-crypto",
-  "version": "0.0.4",
+  "version": "1.2",
   "homepage": "https://github.com/pussinboots/angularjs-crypto",
   "authors": [
     "pussinboots <pussinboots666@googlemail.com>"
@@ -16,7 +16,8 @@
   ],
   "main": [
     "public/js/lib/angularjs-crypto.js",
-    "public/js/lib/plugins/CryptoJSCipher.js"
+    "public/js/lib/plugins/CryptoJSCipher.js",
+    "public/js/lib/ContentHeaderCheck.js"
   ],
   "dependencies": {
     "angular": "1.3.13",

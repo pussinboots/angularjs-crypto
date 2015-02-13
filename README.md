@@ -15,12 +15,18 @@ AngularJS Module that integrate cryptography functionality offers from the [cryp
 
 Inprogress update to the new angularjs version but before protractor migration.
 
+##Versions
+
+Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
+- angularjs 1.2 use the 1.2 branch it is tested with the latest 1.2.28 version
+- angularjs 1.3 use t he master branch iit is tested with 1.3.13 version
+
 ##Code
 [anuglarjs-crypto.js](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 
 Dependencies
 ------------
-- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4 and 1.2.16)
+- [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4, 1.2.16, 1.2.28, 1.3.13)
 - [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
 
@@ -28,6 +34,8 @@ Dependencies
 
 - 0.0.3 : support all ciphers that are supported by CryptoJS
 - 0.0.4 : support decryption of encoded reponse body
+- 1.2 : use it for 1.14 + and 1.2.x version of angularjs
+- 1.3 : use for angularjs 1.3.x
 
 ##Development
 

@@ -2,11 +2,11 @@
   "name": "angularjs-crypto",
   "version": "0.0.1",
   "dependencies": {
-    "bower": "^1.3.3",
-    "connect": "^3.0.0",
-    "serve-static": "^1.2.0",
+    "bower": "^1.3.12",
+    "connect": "^3.3.4",
+    "serve-static": "^1.8.1",
     "wiredep": "^1.7.2",
-    "coffee-script": "~1.7.1"
+    "coffee-script": "~1.9.0"
   },
   "engines": {
     "node": "0.10.x"
@@ -19,18 +19,18 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
-    "karma": "^0.12.16",
-    "karma-chrome-launcher": "^0.1.4",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
     "karma-cli": "0.0.4",
-    "karma-coverage": "^0.2.4",
-    "karma-coveralls": "^0.1.4",
-    "karma-firefox-launcher": "~0.1",
+    "karma-coverage": "^0.2.7",
+    "karma-coveralls": "^0.1.5",
+    "karma-firefox-launcher": "~0.1.4",
     "karma-jasmine": "^0.1.5",
     "karma-junit-reporter": "^0.2.2",
     "karma-ng-scenario": "~0.1",
     "karma-opera-launcher": "~0.1",
-    "karma-phantomjs-launcher": "~0.1",
-    "karma-sauce-launcher": "^0.2.8",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-sauce-launcher": "^0.2.10",
     "karma-script-launcher": "~0.1",
     "karma-threshold-reporter": "~0.1.6",
     "karma-coffee-preprocessor": "~0.2.1",
