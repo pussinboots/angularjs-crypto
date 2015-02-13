@@ -6,7 +6,7 @@ module.exports = function (config) {
         files: [
             'node_modules/karma-ng-scenario/lib/angular-scenario.js',
             'node_modules/karma-ng-scenario/lib/adapter.js',
-            'public/test/e2e/*.coffee',
+            'public/test/e2e/karma/*.coffee',
         ],
         reporters: ['progress', 'dots', 'junit'],
     	junitReporter: {

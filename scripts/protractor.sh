@@ -1,3 +1,3 @@
 #!/bin/sh
 node server.js&>application.log
-protractor karma/protractor.conf.js
+./node_modules/protractor/bin/protractor karma/protractor.conf.js

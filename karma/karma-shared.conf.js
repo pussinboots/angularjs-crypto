@@ -41,7 +41,7 @@ module.exports = function (config) {
         preprocessors: {    'public/js/*.js': ['coverage'],
                             'public/js/lib/*.js': ['coverage'], 
                             'public/test/unit/*.js': ['coverage'],
-                            'public/test/e2e/*.coffee': ['coffee'], },
+                            'public/test/e2e/karma/*.coffee': ['coffee'],},
 
 
         // test results reporter to use
