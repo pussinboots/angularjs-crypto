@@ -31,5 +31,9 @@ exports.config = {
     jasmine.getEnv().addReporter(
       new jasmine.JUnitXmlReporter('./', true, true, 'protractor.', true)
     );
+    var ScreenShotReporter = require('protractor-screenshot-reporter');
+    jasmine.getEnv().addReporter(
+      new ScreenShotReporter({baseDirectory: '/tmp/screenshots'})
+    );
   },
 }

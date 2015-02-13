@@ -35,6 +35,7 @@
     "karma-threshold-reporter": "~0.1.6",
     "karma-coffee-preprocessor": "~0.2.1",
     "jasmine-reporters": "^1.0.0",
-    "protractor": "~1.6.1"
+    "protractor": "~1.6.1",
+    "protractor-screenshot-reporter": "~0.0.5"
   }
 }
