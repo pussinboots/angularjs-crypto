@@ -5,3 +5,5 @@ deps:
     - sublime3
     - firefox
     - nodejs
+    - heroku
+    - travis
