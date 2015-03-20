@@ -277,6 +277,13 @@ With this html snippet you can edit the key to use only locally.
 <input type="text" ng-model="$root.base64Key" />
 ```
 
+Example App
+-------------
+
+Setup a simple example app that use mongodb as persistence layer for storing encrypted data.
+[Github](https://github.com/pussinboots/secure-notes)
+[Live](https://secure-notes.herokuapp.com)
+
 Demo
 -------------
 
