@@ -281,7 +281,9 @@ Example App
 -------------
 
 Setup a simple example app that use mongodb as persistence layer for storing encrypted data.
+
 [Github](https://github.com/pussinboots/secure-notes)
+
 [Live](https://secure-notes.herokuapp.com)
 
 Demo
