@@ -71,7 +71,7 @@ deps: defined the dependencies to be installed during vagrant provision.
 * bower install angularjs-crypto
 * js file is under the [bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js
 ```html
-<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/CryptoJSCipher.js"></script>
+<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
 <script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
