@@ -15,6 +15,12 @@ AngularJS Module that integrate cryptography functionality offers from the [cryp
 
 Inprogress update to the new angularjs version but before protractor migration.
 
+##Demo Application
+
+There is demo application that use this library to demonstrate the client side encryption and storing that encrypted data on a server. Retrieve this data back and decrypt on the client side to display the data. [Demo](https://secure-notes.herokuapp.com)
+[Source Code](https://github.com/pussinboots/secure-notes)
+
+
 ##Versions
 
 Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
