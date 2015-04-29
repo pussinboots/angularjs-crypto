@@ -121,3 +121,16 @@ function defaultVal(val, defaultVal){
         return val;
     }
 };
+
+function ContentHeaderCheck(headerToCrypt) {
+    var headerToCrypt = headerToCrypt;
+    return {
+        check: function(contentType) {
+            for (var index = 0; index < headerToCrypt.length; index++) {
+                var result = contentType.beginsWith(headerToCrypt[index]);
+                if(result) {return true};
+            } 
+            return false;
+        }
+    }
+}
