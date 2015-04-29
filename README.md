@@ -17,7 +17,10 @@ Inprogress update to the new angularjs version but before protractor migration.
 
 ##Demo Application
 
-There is demo application that use this library to demonstrate the client side encryption and storing that encrypted data on a server. Retrieve this data back and decrypt on the client side to display the data. [Demo](https://secure-notes.herokuapp.com)
+There is demo application that use this library to demonstrate the client side encryption and storing that encrypted data on a server. Retrieve this data back and decrypt on the client side to display the data.
+
+[Demo](https://secure-notes.herokuapp.com)
+
 [Source Code](https://github.com/pussinboots/secure-notes)
 
 
