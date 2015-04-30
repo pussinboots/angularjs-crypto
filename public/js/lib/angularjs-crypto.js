@@ -52,7 +52,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                     var data = response.data;
                     if (!data) return $q.reject(request);
                     response.data = JSON.parse(cfg.plugin.decode(data, cfg.key()));
-                    log(cfg, co"encode full body " + response.data);
+                    log(cfg, "encode full body " + response.data);
                 }
                 return response;
             }
