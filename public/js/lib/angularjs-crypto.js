@@ -17,7 +17,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 var data = request.data;
                 if (shouldCrypt === true) {
                     if (checkHeader(cfg, request.headers['Content-Type'])) {
-                        console.log("intercept request " + angular.toJson(data));
+                        log(cfg, "intercept request " + angular.toJson(data));
                         if (!data) return $q.reject(request);
                         encrypt(data, cfg);
                     } else if (( typeof( request.params ) != "undefined")) {
@@ -26,11 +26,11 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 } else if ((request.fullcryptbody || false)) {
                     if (!data) return $q.reject(request);
                     request.data = cfg.plugin.encode(JSON.stringify(data), cfg.key())
-                    //console.log("encode full body " + request.data);
+                    log(cfg, "encode full body " + request.data);
             	} else if (( typeof( request.params ) != "undefined")) {
-                        console.log("encode full query " + request.params);
+                        log(cfg, "encode full query " + request.params);
                         request.params = {query:cfg.plugin.encode(JSON.stringify(request.params),cfg.key())}
-                        console.log("encode full query " + request.params);
+                        log(cfg, "encode full query " + request.params);
                 }
                 return request;
             },
@@ -42,7 +42,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                 if (shouldCrypt == true) {
                     if (checkHeader(cfg, response.headers()['content-type'])) {
                         var data = response.data;
-                        console.log("intercept response " + angular.toJson(data));
+                        log(cfg, "intercept response " + angular.toJson(data));
                         if (!data)
                             return $q.reject(response);
                         decrypt(data, cfg);
@@ -52,7 +52,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                     var data = response.data;
                     if (!data) return $q.reject(request);
                     response.data = JSON.parse(cfg.plugin.decode(data, cfg.key()));
-                    console.log("encode full body " + response.data);
+                    log(cfg, co"encode full body " + response.data);
                 }
                 return response;
             }
@@ -65,8 +65,9 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     this.base64Key;
     this.base64KeyFunc = function(){return ""};
     this.pattern = "_enc";
-    this.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
-    this.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc'])
+    this.logging = false;
+    this.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES);
+    this.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc']);
     this.responseWithQueryParams = true;
 
     this.$get = function () {
@@ -120,6 +121,11 @@ function defaultVal(val, defaultVal){
     }else{
         return val;
     }
+};
+
+function log(cfg, message){
+    if (cfg.logging)
+    	console.log(message);
 };
 
 function ContentHeaderCheck(headerToCrypt) {
