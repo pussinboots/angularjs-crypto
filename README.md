@@ -236,6 +236,15 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 })
 ```
 
+#### Activate console logging
+
+```js
+var demoApp = angular.module('demoApp', ['angularjs-crypto']);
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+ cfCryptoHttpInterceptor.logging = true; //the default value is false. True will log the decrypted and the encrypted values to the console.
+}])
+```
+
 #### Complete encoding of query parameter
 
 ```js
