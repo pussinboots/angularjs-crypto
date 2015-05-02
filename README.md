@@ -235,7 +235,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
     cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.RC4Drop)
 })
 ```
-Configure the Content-Type header for encryption/decryption
+#### Configure the Content-Type header for encryption/decryption
 ```
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 	cfCryptoHttpInterceptor.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc']);
