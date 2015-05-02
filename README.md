@@ -235,7 +235,36 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
     cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.RC4Drop)
 })
 ```
+Configure the Content-Type header for encryption/decryption
+```
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+	cfCryptoHttpInterceptor.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc']);
+}
+```
+The default configured Content-Type is showd above. That means only for request's and responses 
+that have one of the aboved Content-Type will be enrypted/decrypted. For example if you perform a request with the Content-Type : 'text/plain'. This request will be skipped for encryption even if shouldCrpyt is set to true.
 
+There is also the possibilities to implement your own ContentHeaderCheck that for example always return 
+true. Like that own below.
+
+```
+function ContentTypeDoesntMatterCheck() {
+    return {
+        check: function(contentType) {
+            return true;
+        }
+    }
+}
+```
+To use the new implemented ContentHeaderCheck apply following configuration code.
+```
+demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+	cfCryptoHttpInterceptor.contentHeaderCheck = new ContentTypeDoesntMatterCheck();
+}
+```
+
+
+```
 #### Activate console logging
 
 ```js
