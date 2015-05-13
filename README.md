@@ -241,7 +241,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 	cfCryptoHttpInterceptor.contentHeaderCheck = new ContentHeaderCheck(['application/json', 'application/json_enc']);
 }
 ```
-The default configured Content-Type is showd above. That means only for request's and responses 
+The default configured Content-Type is shown above. That means only for request's and responses 
 that have one of the aboved Content-Type will be enrypted/decrypted. For example if you perform a request with the Content-Type : 'text/plain'. This request will be skipped for encryption even if shouldCrpyt is set to true.
 
 There is also the possibilities to implement your own ContentHeaderCheck that for example always return 
@@ -263,8 +263,6 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }
 ```
 
-
-```
 #### Activate console logging
 
 ```js
