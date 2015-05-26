@@ -32,7 +32,8 @@ Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
 
 ##Feature Requests
 
-- support public private key encryption/decryption maybe by integrate this javascript [library](https://github.com/travist/jsencrypt) 
+- support public private key encryption/decryption maybe by integrate this javascript [library](https://github.com/travist/jsencrypt)
+- encrypt / decrypt binary data like images (setup a working example and maybe support it directly with angularjs-crypto.
 
 ##Code
 [anuglarjs-crypto.js](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
