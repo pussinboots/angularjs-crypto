@@ -154,7 +154,6 @@ Todos
 -------------
 * configurable error handling strict or elegant mode 
 * support for http ajax calls missing only ng resource calls are supported (under investigation)
-* aggressive console logging is active for development maybe make it configurable
 
 Features
 -------------
