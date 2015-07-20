@@ -154,6 +154,7 @@ Todos
 -------------
 * configurable error handling strict or elegant mode 
 * support for http ajax calls missing only ng resource calls are supported (under investigation)
+* add support of encrypted cookies that are decrypted on server side
 
 Features
 -------------
