@@ -86,7 +86,7 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
 });
 
 function decrypt(data, cfg) {
-	if ( typeof(some_variable) !== "undefined" && some_variable !== null ) {
+	if ( typeof(data) !== "undefined" && data !== null ) {
 		crypt(data, cfg.pattern, cfg.plugin.decode, cfg.key())   
 	} else {
 		log("data for decryption was null!")
@@ -94,7 +94,7 @@ function decrypt(data, cfg) {
 	
 }
 function encrypt(data, cfg) {
-	if ( typeof(some_variable) !== "undefined" && some_variable !== null ) {
+	if ( typeof(data) !== "undefined" && data !== null ) {
 		crypt(data, cfg.pattern, cfg.plugin.encode, cfg.key())   
 	} else {
 		log("data for encryption was null!")
