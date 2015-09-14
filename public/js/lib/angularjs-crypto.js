@@ -86,10 +86,19 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
 });
 
 function decrypt(data, cfg) {
-	crypt(data, cfg.pattern, cfg.plugin.decode, cfg.key())   
+	if ( typeof(some_variable) !== "undefined" && some_variable !== null ) {
+		crypt(data, cfg.pattern, cfg.plugin.decode, cfg.key())   
+	} else {
+		log("data for decryption was null!")
+	}
+	
 }
 function encrypt(data, cfg) {
-	crypt(data, cfg.pattern, cfg.plugin.encode, cfg.key())   
+	if ( typeof(some_variable) !== "undefined" && some_variable !== null ) {
+		crypt(data, cfg.pattern, cfg.plugin.encode, cfg.key())   
+	} else {
+		log("data for encryption was null!")
+	}
 }
 function crypt(events, pattern, callback, base64Key) {
     var keys = Object.keys(events);
