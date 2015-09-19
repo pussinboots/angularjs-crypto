@@ -10,6 +10,7 @@ demoApp.config(function ($routeProvider) {
     .when('/fullquery', { templateUrl: 'partials/fullquery.html', controller: EncodeFullQueryGetController})
     .when('/fullbody', { templateUrl: 'partials/fullbody.html', controller: EncodeBodyPostController})
     .when('/decryptbody', { templateUrl: 'partials/decryptbody.html', controller: DecodeBodyPostController})
+    .when('/customjson', { templateUrl: 'partials/customjson.html', controller: CustomJsonEncodeController})
     .when('/empty', { templateUrl: 'partials/empty.html', controller: EmptyController})
     .when('/post', { templateUrl: 'partials/post.html', controller: EncodePostController})
     .when('/key', { templateUrl: 'partials/key.html'})

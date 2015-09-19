@@ -101,6 +101,8 @@ function encrypt(data, cfg) {
 	}
 }
 function crypt(events, pattern, callback, base64Key) {
+    if(events === "undefined" || events === null)
+        return;
     var keys = Object.keys(events);
     for (var i in keys) {
         if (keys[i].endsWith(pattern))
