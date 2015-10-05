@@ -13,9 +13,9 @@ function DecodeGetController($scope, Data) {
 
 function CustomJsonEncodeController($scope, Data) {
     $scope.sendJson = function() {
-        $scope.data = JSON.parse($scope.data);
-        $scope.datastr=JSON.stringify($scope.data, null, 4);
-        Data.save($scope.data, function(response){
+        $scope.dataJson = JSON.parse($scope.data);
+        $scope.datastr=JSON.stringify($scope.dataJson, null, 4);
+        Data.save($scope.dataJson, function(response){
             $scope.send = response;
             $scope.sendstr=JSON.stringify($scope.send, null, 4);
         })
