@@ -11,7 +11,7 @@
 
 [![Test Results](http://unitcover.herokuapp.com/api/pussinboots/angularjs-crypto/testsuites/badge)](http://unitcover.herokuapp.com/#/builds/pussinboots/angularjs-crypto/builds)
 
-AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response.
+AngularJS Module that integrate cryptography functionality offers from the [crypto-js](https://code.google.com/p/crypto-js/) project for all http requests and response. The following algorithms are supported CryptoJS.AES, CryptoJS.DES, CryptoJS.TripleDES, CryptoJS.Rabbit, CryptoJS.RC4, CryptoJS.RC4Drop and support of other algoritm can be added.
 
 Inprogress update to the new angularjs version but before protractor migration.
 
@@ -55,19 +55,19 @@ Dependencies
 
 To simplify the checkout and the setup of a full development environment with all needed dependencies the  [vagrant-git](https://github.com/pussinboots/vagrant-git) project is used. 
 
-But before we can use the [vagrant-git](https://github.com/pussinboots/vagrant-git) project first install all [reequieremnts](https://github.com/pussinboots/vagrant-git#requirements). It is implemented as nodejs application. Than you can install the [vagrant-git](https://github.com/pussinboots/vagrant-git) project follow this [instruction](https://github.com/pussinboots/vagrant-git#install). Usage turorial can be found [here](https://github.com/pussinboots/vagrant-git#usage).
+But before we can use the [vagrant-git](https://github.com/pussinboots/vagrant-git) project first install all [requieremnts](https://github.com/pussinboots/vagrant-git#requirements). It is implemented as nodejs application. Than you can install the [vagrant-git](https://github.com/pussinboots/vagrant-git) project follow this [instruction](https://github.com/pussinboots/vagrant-git#install). Usage turorial can be found [here](https://github.com/pussinboots/vagrant-git#usage).
 
 To setup a development vagrant box for this project execute the command below.
 ```bash
 vgit --repo pussinboots/angularjs-crypto 
 ```
-It will checkpout the vagrant runtime repo and this project itslef.
+It will checkpout the vagrant runtime repo and this project itself.
 
 On Windows without ssh client
 ```bash
 vgit --g https --repo pussinboots/angularjs-crypto 
 ```
-That use https instead of ssh protocol. The ssh protocol is the default used protocol. So the first execution will take a while to download the vagrant [base box](https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly) defined in the Vagrantfile. Than it install the defined dependencies see below. When the login screen appear login with vagrant/vagrant than you have a ready to use development environment for that project up and running. The project will be checkout to the vagrant shared folder so that the Host and Guest operating systems can access the git clone.
+That use https instead of ssh protocol. The ssh protocol is the default used protocol. So the first execution will take a while to download the vagrant [base box](https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly-jdk8) defined in the Vagrantfile. Than it install the defined dependencies see below. When the login screen appear login with vagrant/vagrant than you have a ready to use development environment for that project up and running. The project will be checkout to the vagrant shared folder so that the Host and Guest operating systems can access the git clone. The angularjs-crypto project is located in the vm under /vagrant/project/angularjs-crypto.
 
 The vagrant-git configuration is defined in the [.vagrant.yml](.vagrant.yml) file. The configuration will be explained on the next line the [general explanetion](https://github.com/pussinboots/vagrant-git#project-configuration).
 ```yml
@@ -84,8 +84,6 @@ repo: defined the following github repo like https://github.com/pussinboots/vagr
 folder: is only information for the Developer that will pe display before vagrant startup so that he or sher knows where the angularjs-crypto project root folder can be found.
 
 deps: defined the dependencies to be installed during vagrant provision.
-
-
 
 ##Install (bower)
 
@@ -198,6 +196,8 @@ var demoApp = angular.module('demoApp', ['angularjs-crypto']);
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
  cfCryptoHttpInterceptor.pattern = "_enc"; //that is the default value
 }])
+
+This pattern is used to determinate all json fields that should be decrypted/encrypted by apply following command json field name ends with the pattern then perform decryption/encryption on that field.
 ```
 
 #### Set own plugin implementation for encoding and decoding
