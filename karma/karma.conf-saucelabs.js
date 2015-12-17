@@ -3,11 +3,11 @@ var sharedConfig = require('./karma.conf-unit');
 
 module.exports = function (config) {
     var customLaunchers= {
-	      /*'SL_Chrome': {
+	      'SL_Chrome': {
 		base: 'SauceLabs',
 		browserName: 'chrome',
-		version: '34'
-	      },*/
+		version: '43'
+	      },
 	      'SL_Firefox': {
 		base: 'SauceLabs',
 		browserName: 'firefox',
