@@ -28,7 +28,7 @@ There is demo application that use this library to demonstrate the client side e
 
 Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
 - angularjs 1.2 use the 1.2 branch it is tested with the latest 1.2.28 version
-- angularjs 1.3 use the master branch iit is tested with 1.3.13 version
+- angularjs 1.3 use the master branch it is tested with 1.3.13 version
 
 ##Feature Requests
 
