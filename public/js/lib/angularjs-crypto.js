@@ -105,10 +105,15 @@ function crypt(events, pattern, callback, base64Key) {
         return;
     var keys = Object.keys(events);
     for (var i in keys) {
-        if (keys[i].endsWith(pattern))
-            events[keys[i]] = callback(events[keys[i]], base64Key);
+    	if (pattern !== undefined) {
+	        if (keys[i].endsWith(pattern))
+	            events[keys[i]] = callback(events[keys[i]], base64Key);
+    	}
         if (typeof events[keys[i]] === 'object')
             crypt(events[keys[i]], pattern, callback, base64Key)
+        if (pattern === undefined) {
+            events[keys[i]] = callback(events[keys[i]], base64Key);
+        }
     }
 }
 
