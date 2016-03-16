@@ -11,6 +11,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
         return {
             request: function (request) {
                 var shouldCrypt = (request.crypt || false);
+                var pattern = (request.pattern || cfg.pattern);
                 if (missingCryptoJs(shouldCrypt, cfg, $q)) {
                     return q.reject('CryptoJS missing');
                 }
@@ -19,9 +20,9 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                     if (checkHeader(cfg, request.headers['Content-Type'])) {
                         log(cfg, "intercept request " + angular.toJson(data));
                         if (!data) return $q.reject(request);
-                        encrypt(data, cfg);
+                        encrypt(data, cfg, pattern);
                     } else if (( typeof( request.params ) != "undefined")) {
-                        encrypt(request.params, cfg);
+                        encrypt(request.params, cfg, pattern);
                     }
                 } else if ((request.fullcryptbody || false)) {
                     if (!data) return $q.reject(request);
@@ -36,6 +37,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
             },
             response: function (response) {
                 var shouldCrypt = (response.config || false).crypt  && defaultVal(response.config.decrypt, true);
+                var pattern = (request.pattern || cfg.pattern);
                 if (missingCryptoJs(shouldCrypt, cfg, $q)) {
                     return q.reject('CryptoJS missing');
                 }
@@ -45,7 +47,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                         log(cfg, "intercept response " + angular.toJson(data));
                         if (!data)
                             return $q.reject(response);
-                        decrypt(data, cfg);
+                        decrypt(data, cfg, pattern);
                     }
                 }  else if ((response.config.decryptbody || false) &&
                             checkHeader(cfg, response.headers()['content-type'])) {
@@ -85,17 +87,17 @@ cryptoModule.provider('cfCryptoHttpInterceptor', function () {
     };
 });
 
-function decrypt(data, cfg) {
+function decrypt(data, cfg, pattern) {
 	if ( typeof(data) !== "undefined" && data !== null ) {
-		crypt(data, cfg.pattern, cfg.plugin.decode, cfg.key())   
+		crypt(data, pattern, cfg.plugin.decode, cfg.key())   
 	} else {
 		log("data for decryption was null!")
 	}
 	
 }
-function encrypt(data, cfg) {
+function encrypt(data, cfg, pattern) {
 	if ( typeof(data) !== "undefined" && data !== null ) {
-		crypt(data, cfg.pattern, cfg.plugin.encode, cfg.key())   
+		crypt(data, pattern, cfg.plugin.encode, cfg.key())   
 	} else {
 		log("data for encryption was null!")
 	}
