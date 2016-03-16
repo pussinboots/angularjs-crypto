@@ -113,7 +113,7 @@ function crypt(events, pattern, callback, base64Key) {
     	}
         if (typeof events[keys[i]] === 'object')
             crypt(events[keys[i]], pattern, callback, base64Key)
-        if (pattern === undefined) {
+        if (pattern === undefined || pattern === "*") {
             events[keys[i]] = callback(events[keys[i]], base64Key);
         }
     }
