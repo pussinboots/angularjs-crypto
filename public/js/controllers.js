@@ -23,6 +23,18 @@ function CustomJsonEncodeController($scope, Data) {
 }
 
 
+function FullJsonEncodeController($scope, Data) {
+    $scope.sendJson = function() {
+        $scope.dataJson = JSON.parse($scope.data);
+        $scope.datastr=JSON.stringify($scope.dataJson, null, 4);
+        Data.saveFullJson($scope.dataJson, function(response){
+            $scope.send = response;
+            $scope.sendstr=JSON.stringify($scope.send, null, 4);
+        })
+    };
+}
+
+
 function EncodeQueryGetController($scope, Data) {
     $scope.plainQueryParam={name_enc:'COMMERZBANK AG'}
     Data.queryNoDecrypt({name_enc:'COMMERZBANK AG'}, function(response) {
