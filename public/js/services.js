@@ -12,6 +12,7 @@ angular.module('services', ['ngResource'], function ($provide) {
             queryFullCrypt: {url:'/data/query', method: 'GET', isArray: false, fullcryptquery:true},
             queryNoCrypt: {url:'/data/get/aes', method: 'GET'},
             save: {url:'/data', method: 'POST', crypt: true},
+            saveFullJson: {url:'/data', method: 'POST', crypt: true, pattern: '*'},
             saveNoCrypt: {url:'/data', method: 'POST'},
             saveEnCrypt: {url:'/data', method: 'POST',  isArray: true, fullcryptbody:true,
                 transformResponse: function (data, headers) {
