@@ -29,8 +29,8 @@ module.exports = function (config) {
             'http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js',
             'public/js/*.js',
             'public/js/lib/*.js',
-            'public/js/cryptojs/components/*.js',
             'public/js/cryptojs/rollups/*.js',
+            'public/js/cryptojs/components/*.js',
             'public/js/lib/plugins/*.js'
         ],
 
