@@ -94,20 +94,22 @@ deps: defined the dependencies to be installed during vagrant provision.
 ```html
 <script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/plugins/CryptoJSCipher.js"></script>
 <script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js"></script>
-<script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-<script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
+<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/cryptojs/rollups/aes.js"></script>
+<script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/cryptojs/components/mode-ecb.js"></script>
 ```
 
 ##Install (manual)
 
 * download [js file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 * download [js plugin file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/plugins/CryptoJSCipher.js)
+* download [cryptojs aes](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/rollups/aes.js)
+* download [crypto mode-ecb](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/components/mode-ecb.js)
 * added javascript file to your app html file
 ```html
 <script type='text/javascript' src="CryptoJSCipher.js"></script>
 <script type='text/javascript' src="angularjs-crypto.js"></script>
-<script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-<script type='text/javascript' src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js"></script>
+<script type='text/javascript' src="aes.js"></script>
+<script type='text/javascript' src="mode-ecb.js"></script>
 ```
 
 ##Usage
