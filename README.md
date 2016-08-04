@@ -41,8 +41,8 @@ Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
 Dependencies
 ------------
 - [AngularJS 1.1.4 + ](http://angularjs.org/) (tested with 1.1.4, 1.2.16, 1.2.28, 1.3.13)
-- [Crypto-js 3.1.2 AES modul](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js)
-- [Crypto-js 3.1.2 ecb mode](http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-ecb.js)
+- [Crypto-js 3.1.2 AES modul](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/rollups/aes.js)
+- [Crypto-js 3.1.2 ecb mode](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/components/mode-ecb.js)
 
 ##Bower Versions 
 
