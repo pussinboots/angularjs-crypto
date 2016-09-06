@@ -28,7 +28,7 @@ cryptoModule.config(['$httpProvider', function ($httpProvider) {
                     if (!data) return $q.reject(request);
                     request.data = cfg.plugin.encode(JSON.stringify(data), cfg.key())
                     log(cfg, "encode full body " + request.data);
-            	} else if (( typeof( request.params ) != "undefined")) {
+            	} else if ((request.fullcryptquery || false) && ( typeof( request.params ) != "undefined")) {
                         log(cfg, "encode full query " + request.params);
                         request.params = {query:cfg.plugin.encode(JSON.stringify(request.params),cfg.key())}
                         log(cfg, "encode full query " + request.params);
