@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/pussinboots/angularjs-crypto.svg?branch=master)](https://travis-ci.org/pussinboots/angularjs-crypto)
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/angularjs-crypto.svg)](https://coveralls.io/r/pussinboots/angularjs-crypto?branch=master)
 [![Dependencies](https://david-dm.org/pussinboots/angularjs-crypto.png)](https://david-dm.org/pussinboots/angularjs-crypto)
-[![Heroku](http://heroku-badge.heroku.com/?app=angularjs-crypto&style=flat)](https://angularjs-crypto.herokuapp.com/)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat)](https://angularjs-crypto.herokuapp.com/)
 [![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/angularjs-crypto/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/angularjs-crypto/builds)
 [![Codio](https://d2g7ua7d94r3fl.cloudfront.net/assets/images/8aa866ae.codio_logo.png)](https://codio.com/pussinboots/angularjs-crypto)
 
@@ -15,7 +15,7 @@ AngularJS Module that integrate cryptography functionality offers from the [cryp
 
 Inprogress update to the new angularjs version but before protractor migration.
 
-##Demo Application
+## Demo Application
 
 There is demo application that use this library to demonstrate the client side encryption and storing that encrypted data on a server. Retrieve this data back and decrypt on the client side to display the data.
 
@@ -24,18 +24,18 @@ There is demo application that use this library to demonstrate the client side e
 [Source Code](https://github.com/pussinboots/secure-notes)
 
 
-##Versions
+## Versions
 
 Actual there are two versions one for angularjs 1.2 and one for angularjs 1.3.
 - angularjs 1.2 use the 1.2 branch it is tested with the latest 1.2.28 version
 - angularjs 1.3 use the master branch it is tested with 1.3.13 version
 
-##Feature Requests
+## Feature Requests
 
 - support public private key encryption/decryption maybe by integrate this javascript [library](https://github.com/travist/jsencrypt)
 - encrypt / decrypt binary data like images (setup a working example and maybe support it directly with angularjs-crypto) [example image encryption](http://alicebobandmallory.com/articles/2010/10/14/encrypt-images-in-javascript)
 
-##Code
+## Code
 [anuglarjs-crypto.js](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 
 Dependencies
@@ -44,14 +44,14 @@ Dependencies
 - [Crypto-js 3.1.2 AES modul](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/rollups/aes.js)
 - [Crypto-js 3.1.2 ecb mode](https://raw.githubusercontent.com/pussinboots/angularjs-crypto/master/public/js/cryptojs/components/mode-ecb.js)
 
-##Bower Versions 
+## Bower Versions
 
 - 0.0.3 : support all ciphers that are supported by CryptoJS
 - 0.0.4 : support decryption of encoded reponse body
 - 1.2.0 : use it for 1.14 + and 1.2.x version of angularjs
 - 1.3.0 : use for angularjs 1.3.x
 
-##Development
+## Development
 
 To simplify the checkout and the setup of a full development environment with all needed dependencies the  [vagrant-git](https://github.com/pussinboots/vagrant-git) project is used. 
 
@@ -87,7 +87,7 @@ deps: defined the dependencies to be installed during vagrant provision.
 
 
 
-##Install (bower)
+## Install (bower)
 
 * bower install angularjs-crypto
 * js file is under the [bower_components/]angularjs-crypto/public/js/lib/angularjs-crypto.js
@@ -98,7 +98,7 @@ deps: defined the dependencies to be installed during vagrant provision.
 <script type='text/javascript' src="[bower_components/]angularjs-crypto/public/js/cryptojs/components/mode-ecb.js"></script>
 ```
 
-##Install (manual)
+## Install (manual)
 
 * download [js file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/angularjs-crypto.js)
 * download [js plugin file](https://github.com/pussinboots/angularjs-crypto/blob/master/public/js/lib/plugins/CryptoJSCipher.js)
@@ -112,7 +112,7 @@ deps: defined the dependencies to be installed during vagrant provision.
 <script type='text/javascript' src="mode-ecb.js"></script>
 ```
 
-##Usage
+## Usage
 
 * add modul dependency ('angularjs-crypto') to angular
 ```js
@@ -219,7 +219,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }])
 ```
 
-#### connfigure the cipher algorithm to use
+#### configure the cipher algorithm to use
 
 ```js
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
@@ -227,7 +227,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 })
 ```
 
-- availabe ciphers all that are supported by [CryptoJS](https://code.google.com/p/crypto-js/#Ciphers)
+- availabe ciphers that are supported by [CryptoJS](https://code.google.com/p/crypto-js/#Ciphers)
 ```js
 demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
     cfCryptoHttpInterceptor.plugin = new CryptoJSCipher(CryptoJS.mode.ECB, CryptoJS.pad.Pkcs7, CryptoJS.AES)
@@ -245,7 +245,7 @@ demoApp.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
 }
 ```
 The default configured Content-Type is shown above. That means only for request's and responses 
-that have one of the aboved Content-Type will be enrypted/decrypted. For example if you perform a request with the Content-Type : 'text/plain'. This request will be skipped for encryption even if shouldCrpyt is set to true.
+that have one of the aboved Content-Type will be enrypted/decrypted. For example if you perform a request with the Content-Type : 'text/plain'. This request will be skipped for encryption even if shouldCrypt is set to true.
 
 There is also the possibilities to implement your own ContentHeaderCheck that for example always return 
 true. Like that own below.
